@@ -4,7 +4,7 @@
             <div class="flex items-center flex-1 md:absolute md:inset-y-0 md:left-0">
                 <div class="flex items-center justify-between w-full md:w-auto">
                     <a href="/">
-                        <img src="imgs/logohotel" class="w-16 h-16 transition-transform duration-200 ease-in-out hover:scale-105" alt="logo hotel conterraneo">
+                        <img src="imgs/hotelLogo.png" class="w-16 h-16 transition-transform duration-200 ease-in-out hover:scale-105" alt="logo hotel conterraneo">
                     </a>
                     <!-- Botão do menu hambúrguer para mobile -->
                     <div class="flex items-center -mr-2 md:hidden">
@@ -38,7 +38,7 @@
             </div>
 
             <!-- Menu para mobile -->
-            <div id="mobile-menu" class="hidden fixed inset-x-0 top-0 h-1/2 flex flex-col justify-center items-center bg-yellow-900 text-center z-50">
+            <div id="mobile-menu" class="hidden fixed inset-x-0 top-0 h-1/2 flex flex-col justify-center items-center bg-yellow-500 text-center z-50">
                 <!-- Botão para fechar o menu -->
                 <div class="absolute top-4 right-4">
                     <button id="close-menu" class="text-black bg-gray-50 rounded-md p-2 focus:outline-none hover:bg-gray-100">
