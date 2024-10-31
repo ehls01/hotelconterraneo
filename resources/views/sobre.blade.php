@@ -21,7 +21,7 @@
             />
         </div>
         <div class="w-full md:w-1/2 md:pl-8 mt-4 md:mt-0">
-            <h2 class="text-sm font-semibold">Hotel Conterrâneo</h2>
+            <h2 class="text-sm font-semibold">Hotel Conterrâneo 2222</h2>
             <p class="text-lg text-gray-600 mt-2">Descubra a história do nosso hotel e como nos tornamos referência em hospitalidade.</p>
             <h1 class="text-4xl font-bold mt-4">Uma história de tradição e excelência</h1>
             <p class="text-lg text-gray-600 mt-4">O Hotel Conterrâneo foi fundado em 2010 com o objetivo de proporcionar aos seus hóspedes uma experiência única e inesquecível. Desde então, temos nos dedicado a oferecer serviços de qualidade e a garantir o conforto e satisfação de todos os nossos visitantes.</p>
