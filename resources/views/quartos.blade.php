@@ -19,7 +19,7 @@
   />
 </div>
 
-<div class="flex flex-col md:flex-row justify-between items-start mt-8 px-6">
+<div class="flex flex-col md:flex-row justify-between items-start mt-8 px-40">
   <div class="md:w-1/2">
     <h1 class="text-3xl font-bold text-black">
     Bem-vindo ao Hotel Conterrâneo - Sua Casa Longe de Casa
