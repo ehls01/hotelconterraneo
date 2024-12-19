@@ -100,3 +100,5 @@ function scrollToSection(id) {
 
 <x-footer />
 
+@livewireScripts
+</body>

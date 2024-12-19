@@ -134,3 +134,6 @@
 </div><br><br><br> 
 
 <x-footer />
+
+@livewireScripts
+</body>

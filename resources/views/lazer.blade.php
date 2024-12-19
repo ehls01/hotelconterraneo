@@ -8,8 +8,9 @@
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:200,400&display=swap" rel="stylesheet">
     <link rel="icon" href="imgs/hotelLogo.png" sizes="48x48" type="image/x-icon">
 </head>
-<body>
 
+<body>
+  
 <x-navbar />
 
 <!-- Carousel Section -->
@@ -87,6 +88,9 @@
   });
 </script>
 
-><br>
+<br>
 
 <x-footer />
+
+@livewireScripts
+</body>

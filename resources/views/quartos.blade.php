@@ -166,3 +166,6 @@
 <br><br><br><br><br>
 
 <x-footer />
+
+@livewireScripts
+</body>

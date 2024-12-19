@@ -11,7 +11,7 @@
 </head>
 
 <body>
-  
+
 <x-navbar />
 
 <div class="bg-white text-gray-900">
@@ -182,5 +182,6 @@ function scrollToSection(id) {
 
 <x-footer />
 
-
+@livewireScripts
+</body>
 
