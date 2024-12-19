@@ -64,8 +64,9 @@
         </script>
 
         <div class="border-t border-gray-300 mt-16 pt-4 text-center md:text-left">
-            <p class="text-sm">&copy; 2024 @emanoelheron. Todos os direitos reservados. <a href="#" class="text-black-500">Política de Privacidade</a> <a href="#" class="text-blue-500">Termos de Serviço</a> <a href="#" class="text-blue-500">Configurações de Cookies</a></p>
-            <div class="flex justify-center md:justify-start mt-4"></div>
+            <p class="text-sm">&copy; 2024 @emanoelheron. Todos os direitos reservados.</p>
         </div>
     </div>
-</footer>
+    
+<x-footer />
+

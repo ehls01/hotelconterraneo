@@ -12,133 +12,81 @@
 
 <x-navbar />
 
-<div class="bg-gray-300 h-[70vh] flex items-center justify-center overflow-hidden"> <!-- Ajuste de altura -->
-  <img 
-    alt="Placeholder image" 
-    class="h-full w-full object-cover" 
-    src="https://www.serhsnatalgrandhotel.com/content/imgsxml/galerias/panel_gallery/1/serhsnatalgh17.5247b546.jpg" 
-  />
-</div>
-
-<!---- <div class="flex flex-col md:flex-row justify-between items-start mt-8 px-40"> -->
-
-<div class="bg-white text-gray-900 ">
-  <div class="container mx-auto p-8">
-    <h1 class="text-4xl font-bold mb-4">
-      Desfrute de nossa incrível piscina com todas as comodidades que você precisa
-    </h1>
-    <div class="flex flex-row gap-8">
-      <div>
-        <p class="text-lg">
-          Nossa piscina é perfeita para relaxar e se refrescar em um ambiente tranquilo e agradável.
-        </p>
+<!-- Carousel Section -->
+<div class="h-[70vh] pt-4 overflow-hidden relative rounded-lg" id="carousel-container">
+  <!-- Carousel Wrapper -->
+  <div class="flex transition-transform duration-500 ease-in-out" id="carousel">
+    <!-- Slide 1: Piscina -->
+    <div class="flex-shrink-0 w-full flex">
+      <div class="w-1/2 h-full">
+        <img alt="Piscina" class="h-full w-full object-cover" src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/28/93/98/a1/sanma-hotel.jpg?w=1200&h=-1&s=1" />
       </div>
-      <div class="flex flex-row gap-8">
-        <div class="flex items-start">
-          <i class="fas fa-cube text-2xl mr-4"></i>
-          <div>
-            <h2 class="text-xl font-semibold">
-              Comodidades
-            </h2>
-            <p>
-              Toalhas e espreguiçadeiras para tornar sua experiência de lazer ainda mais satisfatória.
-            </p>
-          </div>
+      <div class="w-1/2 h-full bg-white flex items-center justify-center p-6 shadow-xl">
+        <div class="text-center w-full">
+          <p class="text-xl font-semibold text-gray-800">Nossa piscina oferece o ambiente ideal para relaxamento e diversão. Com um design moderno e águas cristalinas, é o local perfeito para aproveitar o dia com conforto e tranquilidade.</p>
         </div>
-        <div class="flex items-start">
-          <i class="fas fa-cube text-2xl mr-4"></i>
-          <div>
-            <h2 class="text-xl font-semibold">
-              Horários
-            </h2>
-            <p>
-              A piscina está disponível das 08:00h às 20:00h para todos os hóspedes.
-            </p>
-          </div>
+      </div>
+    </div>
+
+    <!-- Slide 2: Área verde -->
+    <div class="flex-shrink-0 w-full flex">
+      <div class="w-1/2 h-full bg-white flex items-center justify-center p-6 shadow-xl">
+        <div class="text-center w-full">
+          <p class="text-xl font-semibold text-gray-800">A área verde do hotel proporciona um espaço tranquilo e revigorante, rodeado pela natureza. É o lugar perfeito para quem busca um ambiente relaxante, ideal para caminhadas e momentos de paz.</p>
+        </div>
+      </div>
+      <div class="w-1/2 h-full">
+        <img alt="Área verde" class="h-full w-full object-cover" src="https://spa-espaco-verde.hotelempernambuco.com/data/Images/OriginalPhoto/5092/509294/509294790/image-camaragibe-spa-espaco-verde-hotel-1.JPEG" />
+      </div>
+    </div>
+
+    <!-- Slide 3: Aceitamos animais -->
+    <div class="flex-shrink-0 w-full flex">
+      <div class="w-1/2 h-full">
+        <img alt="Aceitamos animais" class="h-full w-full object-cover" src="https://s2-oglobo.glbimg.com/5_pGvFu0fNt7RWKRjwQOe5jA_Yk=/0x0:3600x2400/888x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_da025474c0c44edd99332dddb09cabe8/internal_photos/bs/2023/s/B/hzPjArR5mwNuNAnfBaOQ/pet-friendly-hotels-4-0.jpg" />
+      </div>
+      <div class="w-1/2 h-full bg-white flex items-center justify-center p-6 shadow-xl">
+        <div class="text-center w-full">
+          <p class="text-xl font-semibold text-gray-800">Aceitamos animais! Seu pet também é bem-vindo no nosso hotel. Oferecemos acomodações confortáveis e espaços exclusivos para garantir que seu animal de estimação tenha uma estadia agradável junto de você.</p>
         </div>
       </div>
     </div>
   </div>
+
+  <!-- Prev Button -->
+  <button id="prev" class="absolute top-1/2 left-4 transform -translate-y-1/2 bg-black text-white p-2 rounded-full shadow-lg z-10">
+    &#10094;
+  </button>
+
+  <!-- Next Button -->
+  <button id="next" class="absolute top-1/2 right-4 transform -translate-y-1/2 bg-black text-white p-2 rounded-full shadow-lg z-10">
+    &#10095;
+  </button>
 </div>
 
+<!-- JavaScript for manual slide change -->
+<script>
+  let currentIndex = 0;
+  const slides = document.querySelectorAll('#carousel > div');
+  const totalSlides = slides.length;
 
-<div>
-    <div class="bg-white text-gray-900">
-        <div class="container mx-auto p-8">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <h1 class="text-4xl font-bold mb-4">
-                    Lazer e Atividades
-                </h1>
-                <div>
-                    <p class="text-lg">
-                        Descubra as opções de lazer e atividades oferecidas pelo Hotel Conterrâneo.
-                        Aproveite a piscina, relaxe na área verde e traga seu pet para desfrutar de
-                        momentos especiais.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+  const showSlide = (index) => {
+    document.getElementById('carousel').style.transform = `translateX(-${index * slides[0].offsetWidth}px)`;
+  };
 
-<div class="flex items-center justify-center min-h-screen bg-white pt-24 md:pt-32">
-  <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
-    <div class="w-full md:w-1/2 mb-4 md:mb-0">
-      <h1 class="text-4xl font-bold mb-4">
-        Desfrute da nossa área verde ao ar livre
-      </h1>
-      <p class="text-lg text-gray-700">
-        Nossa área verde é perfeita para relaxar e aproveitar a natureza. Oferecemos trilhas para caminhadas, quadras esportivas e muito mais.
-      </p>
-    </div>
-    <div class="w-full md:w-1/2 flex justify-center">
-      <img 
-        alt="Placeholder image" 
-        class=" object-contain" 
-        src="https://placehold.co/800x800"
-      />
-    </div>
-  </div>
-</div>
+  // Next slide
+  document.getElementById('next').addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % totalSlides;
+    showSlide(currentIndex);
+  });
 
-<div class="flex items-center justify-center min-h-screen bg-white pt-24 md:pt-32">
-  <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
-    <div class="w-full md:w-1/2 flex justify-center md:pr-8">
-      <img 
-        alt="Placeholder image" 
-        class="object-contain" 
-        src="https://placehold.co/800x800"
-      />
-    </div>
-    <div class="w-full md:w-1/2 mb-4 md:mb-0">
-      <h1 class="text-4xl font-bold mb-4">
-        Aproveite nossa piscina e area de lazer para relaxar!
-      </h1>
-      <p class="text-lg text-gray-700">
-        A piscina é incrível! É o lugar perfeito para relaxar e se refrescar durante sua estadia no Hotel Conterrâneo.
-      </p>
-    </div>
-  </div>
-</div>
+  // Previous slide
+  document.getElementById('prev').addEventListener('click', () => {
+    currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+    showSlide(currentIndex);
+  });
+</script>
 
-<div class="flex items-center justify-center min-h-screen bg-white pt-24 md:pt-32">
-  <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
-    <div class="w-full md:w-1/2 mb-4 md:mb-0">
-      <h1 class="text-4xl font-bold mb-4">
-        Política Pet-Friendly: Seu melhor amigo é bem-vindo em nosso hotel!
-      </h1>
-      <p class="text-lg text-gray-700">
-        No Hotel Conterrâneo, entendemos que seu animal de estimação faz parte da família. Por isso, permitimos que você traga seu pet durante sua estadia.
-      </p>
-    </div>
-    <div class="w-full md:w-1/2 flex justify-center">
-      <img 
-        alt="Placeholder image" 
-        class=" object-contain" 
-        src="https://placehold.co/800x800"
-      />
-    </div>
-  </div>
-</div>
+><br>
 
 <x-footer />

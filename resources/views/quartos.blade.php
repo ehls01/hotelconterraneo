@@ -7,11 +7,14 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:200,400&display=swap" rel="stylesheet">
     <link rel="icon" href="imgs/hotelLogo.png" sizes="48x48" type="image/x-icon">
+    @livewireStyles
 </head>
 
+<body>
+    
 <x-navbar />
 
-<div class="bg-gray-300 h-[70vh] flex items-center justify-center overflow-hidden"> <!-- Ajuste de altura -->
+<div class="bg-gray-300 h-[70vh] pt-4 flex items-center justify-center overflow-hidden"> <!-- Ajuste de altura -->
   <img 
     alt="Placeholder image" 
     class="h-full w-full object-cover" 
@@ -56,159 +59,108 @@
   </div>
 </div><br><br><br><br><br>
 
-  <div class="bg-white text-black">
-    <div class="container mx-auto px-4 py-8">
-      <h1 class="text-3xl font-bold mb-8">
-        Localização privilegiada em uma área central da cidade
-      </h1>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="p-4">
-          <img
-            alt="Placeholder image for luxury accommodations"
-            class="w-80 h-80 object-cover mb-4"
-            src="https://www.collinedefrance.com.br/wp-content/uploads/elementor/thumbs/petit-01-oaiofqysb757dz2oz9tl8eze81w020tc1rhmcndgts.jpg"
-          />
-          <h2 class="text-xl font-bold mb-2">
-            Comodidades de luxo para uma estadia confortável
-          </h2>
-          <p class="mb-4">
-            Desfrute de quartos espaçosos e bem equipados, além de serviços de alta qualidade.
-          </p>
-          <a class="text-blue-500 font-semibold" href="#">
-            Saiba Mais
-            <i class="fas fa-chevron-right"></i>
-          </a>
-        </div>
-
-        <div class="p-4">
-          <img
-            alt="Placeholder image for luxury accommodations"
-            class="w-80 h-80 object-cover mb-4"
-            src="https://www.collinedefrance.com.br/wp-content/uploads/elementor/thumbs/petit-01-oaiofqysb757dz2oz9tl8eze81w020tc1rhmcndgts.jpg"
-          />
-          <h2 class="text-xl font-bold mb-2">
-            Atendimento personalizado para tornar sua estadia memorável
-          </h2>
-          <p class="mb-4">
-            Nossa equipe está pronta para atender todas as suas necessidades durante sua estadia.
-          </p>
-          <a class="text-blue-500 font-semibold" href="#">
-            Reservar
-            <i class="fas fa-chevron-right"></i>
-          </a>
-        </div>
-        <div class="p-4">
-          <img
-            alt="Placeholder image for luxury accommodations"
-            class="w-80 h-80 object-cover mb-4"
-            src="https://www.collinedefrance.com.br/wp-content/uploads/elementor/thumbs/petit-01-oaiofqysb757dz2oz9tl8eze81w020tc1rhmcndgts.jpg"
-          />
-          <h2 class="text-xl font-bold mb-2">
-            Aproveite as comodidades adicionais, como piscina e área verde
-          </h2>
-          <p class="mb-4">
-            Oferecemos uma variedade de opções de lazer para tornar sua estadia ainda mais especial.
-          </p>
-          <a class="text-blue-500 font-semibold" href="#">
-            Explorar
-            <i class="fas fa-chevron-right"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-</div><br><br><br><br><br>
 
 <div class="bg-white text-black">
     <div class="container mx-auto p-4">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <div class="border p-4">
-                <h2 class="text-center text-lg font-semibold">Apartamento Individual</h2>
-                <p class="text-center text-4xl font-bold">R$ 130,00</p>
-                  <ul class="mt-4 space-y-2">
-                      <li class="flex items-center"><i class="fas fa-check mr-2"></i>Conforto para 1 pessoa</li>
-                      <li class="flex items-center"><i class="fas fa-check mr-2"></i>Ar condicionado</li>
-                      <li class="flex items-center"><i class="fas fa-check mr-2"></i>Wi-Fi gratuito</li>
-                      <li class="flex items-center"><i class="fas fa-check mr-2"></i>Guarda-Roupas</li>
-                      <li class="flex items-center"><i class="fas fa-check mr-2"></i>Frigobar</li>
-                      <li class="flex items-center"><i class="fas fa-check mr-2"></i>TV a Cabo</li>
-
-                  </ul>
-                  <a href="https://wa.me/5584991166551?text=Olá,%20quero%20reservar%20o%20quarto%20individual." target="_blank">
-                      <button class="mt-4 w-full bg-yellow-500 text-black py-2">Reserve agora</button>
-                  </a>
+            <!-- Primeiro card dos quartos -->
+            <div class="border border-gray-300">
+                <img src="https://s2.glbimg.com/QA7LmbS-ozlHO2u_9v3UbxbSr2A=/620x455/e.glbimg.com/og/ed/f/original/2021/06/29/ipiranga0184.jpg" alt="foto-quarto" class="w-full object-cover">
+                <div class="p-6">
+                    <h4 class="text-left text-lg font-semibold">APARTAMENTO INDIVIDUAL</h4>
+                    <ul class="mt-4 space-y-2">
+                        <li class="flex items-center"><i class="fas fa-check mr-2"></i>Conforto para 1 pessoa</li>
+                        <li class="flex items-center"><i class="fas fa-check mr-2"></i>Ar condicionado</li>
+                        <li class="flex items-center"><i class="fas fa-check mr-2"></i>Wi-Fi gratuito</li>
+                        <li class="flex items-center"><i class="fas fa-check mr-2"></i>Guarda-Roupas</li>
+                        <li class="flex items-center"><i class="fas fa-check mr-2"></i>Frigobar</li>
+                        <li class="flex items-center"><i class="fas fa-check mr-2"></i>TV a Cabo</li>
+                    </ul><br>
+                    <h4 class="text-left text-lg font-semibold">VALOR: 129,00</h4>
+                    <a href="https://wa.me/5584991166551?text=Olá,%20quero%20reservar%20o%20quarto%20individual." target="_blank">
+                        <button class="mt-4 w-full bg-yellow-500 text-black py-2">Reserve agora</button>
+                    </a>
+                </div>
             </div>
-            <div class="border p-4">
-                <h2 class="text-center text-lg font-semibold">Apartamento Duplo</h2>
-                <p class="text-center text-4xl font-bold">R$ 170,00</p>
-                <ul class="mt-4 space-y-2">
-                      <li class="flex items-center"><i class="fas fa-check mr-2"></i>Conforto para 2 pessoa</li>
-                      <li class="flex items-center"><i class="fas fa-check mr-2"></i>Ar condicionado</li>
-                      <li class="flex items-center"><i class="fas fa-check mr-2"></i>Wi-Fi gratuito</li>
-                      <li class="flex items-center"><i class="fas fa-check mr-2"></i>Guarda-Roupas</li>
-                      <li class="flex items-center"><i class="fas fa-check mr-2"></i>Frigobar</li>
-                      <li class="flex items-center"><i class="fas fa-check mr-2"></i>TV a Cabo</li>
-                </ul>
-                <a href="https://wa.me/5584991166551?text=Olá,%20quero%20reservar%20o%20quarto%20duplo." target="_blank">
-                      <button class="mt-4 w-full bg-yellow-500 text-black py-2">Reserve agora</button>
-                </a>
+            <!-- Segundo card dos quartos -->
+            <div class="border border-gray-300">
+                <img src="https://s2.glbimg.com/QA7LmbS-ozlHO2u_9v3UbxbSr2A=/620x455/e.glbimg.com/og/ed/f/original/2021/06/29/ipiranga0184.jpg" alt="foto-quarto" class="w-full object-cover">
+                <div class="p-6">
+                    <h4 class="text-left text-lg font-semibold">APARTAMENTO DUPLO</h4>
+                    <ul class="mt-4 space-y-2">
+                        <li class="flex items-center"><i class="fas fa-check mr-2"></i>Conforto para 2 pessoa</li>
+                        <li class="flex items-center"><i class="fas fa-check mr-2"></i>Ar condicionado</li>
+                        <li class="flex items-center"><i class="fas fa-check mr-2"></i>Wi-Fi gratuito</li>
+                        <li class="flex items-center"><i class="fas fa-check mr-2"></i>Guarda-Roupas</li>
+                        <li class="flex items-center"><i class="fas fa-check mr-2"></i>Frigobar</li>
+                        <li class="flex items-center"><i class="fas fa-check mr-2"></i>TV a Cabo</li>
+                    </ul><br>
+                    <h4 class="text-left text-lg font-semibold">VALOR: 169,99</h4>
+                    <a href="https://wa.me/5584991166551?text=Olá,%20quero%20reservar%20o%20quarto%20individual." target="_blank">
+                        <button class="mt-4 w-full bg-yellow-500 text-black py-2">Reserve agora</button>
+                    </a>
+                </div>
             </div>
-            <div class="border p-4">
-                <h2 class="text-center text-lg font-semibold">Apartamento Triplo</h2>
-                <p class="text-center text-4xl font-bold">R$ 220,00</p>
-                <ul class="mt-4 space-y-2">
-                <li class="flex items-center"><i class="fas fa-check mr-2"></i>Conforto para 3 pessoa</li>
-                <li class="flex items-center"><i class="fas fa-check mr-2"></i>Ar condicionado</li>
-                      <li class="flex items-center"><i class="fas fa-check mr-2"></i>Wi-Fi gratuito</li>
-                      <li class="flex items-center"><i class="fas fa-check mr-2"></i>Guarda-Roupas</li>
-                      <li class="flex items-center"><i class="fas fa-check mr-2"></i>Frigobar</li>
-                      <li class="flex items-center"><i class="fas fa-check mr-2"></i>TV a Cabo</li>
-                </ul>
-                <a href="https://wa.me/5584991166551?text=Olá,%20quero%20reservar%20o%20quarto%20triplo." target="_blank">
-                    <button class="mt-4 w-full bg-yellow-500 text-black py-2">Reserve agora</button>
-                </a>
+            <!-- Terceiro card dos quartos -->            
+            <div class="border border-gray-300">
+                <img src="https://s2.glbimg.com/QA7LmbS-ozlHO2u_9v3UbxbSr2A=/620x455/e.glbimg.com/og/ed/f/original/2021/06/29/ipiranga0184.jpg" alt="foto-quarto" class="w-full object-cover">
+                <div class="p-6">
+                    <h4 class="text-left text-lg font-semibold">APARTAMENTO TRIPLO</h4>
+                    <ul class="mt-4 space-y-2">
+                        <li class="flex items-center"><i class="fas fa-check mr-2"></i>Conforto para 2 pessoa</li>
+                        <li class="flex items-center"><i class="fas fa-check mr-2"></i>Ar condicionado</li>
+                        <li class="flex items-center"><i class="fas fa-check mr-2"></i>Wi-Fi gratuito</li>
+                        <li class="flex items-center"><i class="fas fa-check mr-2"></i>Guarda-Roupas</li>
+                        <li class="flex items-center"><i class="fas fa-check mr-2"></i>Frigobar</li>
+                        <li class="flex items-center"><i class="fas fa-check mr-2"></i>TV a Cabo</li>
+                    </ul><br>
+                    <h4 class="text-left text-lg font-semibold">VALOR: 219,99</h4>
+                    <a href="https://wa.me/5584991166551?text=Olá,%20quero%20reservar%20o%20quarto%20individual." target="_blank">
+                        <button class="mt-4 w-full bg-yellow-500 text-black py-2">Reserve agora</button>
+                    </a>
+                </div>
             </div>
         </div><br>
-
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div class="border p-4">
-                <h2 class="text-center text-lg font-semibold">Apartamento Quádruplo</h2>
-                <p class="text-center text-4xl font-bold">R$ 270,00</p>
-                <ul class="mt-4 space-y-2">
-                <li class="flex items-center"><i class="fas fa-check mr-2"></i>Conforto para 4 pessoa</li>
-                <li class="flex items-center"><i class="fas fa-check mr-2"></i>Ar condicionado</li>
-                      <li class="flex items-center"><i class="fas fa-check mr-2"></i>Wi-Fi gratuito</li>
-                      <li class="flex items-center"><i class="fas fa-check mr-2"></i>Guarda-Roupas</li>
-                      <li class="flex items-center"><i class="fas fa-check mr-2"></i>Frigobar</li>
-                      <li class="flex items-center"><i class="fas fa-check mr-2"></i>TV a Cabo</li>
-                </ul>
-                <a href="https://wa.me/5584991166551?text=Olá,%20quero%20reservar%20o%20quarto%20quádruplo." target="_blank">
-                    <button class="mt-4 w-full bg-yellow-500 text-black py-2">Reserve agora</button>
-                </a>
+            <!-- Quarto card dos quartos -->   
+            <div class="border border-gray-300">
+                <img src="https://s2.glbimg.com/QA7LmbS-ozlHO2u_9v3UbxbSr2A=/620x455/e.glbimg.com/og/ed/f/original/2021/06/29/ipiranga0184.jpg" alt="foto-quarto" class="w-full object-cover">
+                <div class="p-6">
+                    <h4 class="text-left text-lg font-semibold">APARTAMENTO QUÁDRUPLO</h4>
+                    <ul class="mt-4 space-y-2">
+                        <li class="flex items-center"><i class="fas fa-check mr-2"></i>Conforto para 4 pessoas</li>
+                        <li class="flex items-center"><i class="fas fa-check mr-2"></i>Ar condicionado</li>
+                        <li class="flex items-center"><i class="fas fa-check mr-2"></i>Wi-Fi gratuito</li>
+                        <li class="flex items-center"><i class="fas fa-check mr-2"></i>Guarda-Roupas</li>
+                        <li class="flex items-center"><i class="fas fa-check mr-2"></i>Frigobar</li>
+                        <li class="flex items-center"><i class="fas fa-check mr-2"></i>TV a Cabo</li>
+                    </ul><br>
+                    <h4 class="text-left text-lg font-semibold">VALOR: 269,99</h4>
+                    <a href="https://wa.me/5584991166551?text=Olá,%20quero%20reservar%20o%20quarto%20quádruplo." target="_blank">
+                        <button class="mt-4 w-full bg-yellow-500 text-black py-2">Reserve agora</button>
+                    </a>
+                </div>
             </div>
-            <div class="border p-4">
-                <h2 class="text-center text-lg font-semibold">Apartamento Quíntuplo</h2>
-                <p class="text-center text-4xl font-bold">R$ 360,00</p>
-                <ul class="mt-4 space-y-2">
-                <li class="flex items-center"><i class="fas fa-check mr-2"></i>Conforto para 5 pessoa</li>
-                <li class="flex items-center"><i class="fas fa-check mr-2"></i>Ar condicionado</li>
-                      <li class="flex items-center"><i class="fas fa-check mr-2"></i>Wi-Fi gratuito</li>
-                      <li class="flex items-center"><i class="fas fa-check mr-2"></i>Guarda-Roupas</li>
-                      <li class="flex items-center"><i class="fas fa-check mr-2"></i>Frigobar</li>
-                      <li class="flex items-center"><i class="fas fa-check mr-2"></i>TV a Cabo</li>
-                </ul>
-                <a href="https://wa.me/5584991166551?text=Olá,%20quero%20reservar%20o%20quarto%20quíntuplo." target="_blank">
-                    <button class="mt-4 w-full bg-yellow-500 text-black py-2">Reserve agora</button>
-                </a>
+            <!-- Quinto card dos quartos -->   
+            <div class="border border-gray-300">
+                <img src="https://s2.glbimg.com/QA7LmbS-ozlHO2u_9v3UbxbSr2A=/620x455/e.glbimg.com/og/ed/f/original/2021/06/29/ipiranga0184.jpg" alt="foto-quarto" class="w-full object-cover">
+                <div class="p-6">
+                    <h4 class="text-left text-lg font-semibold">APARTAMENTO QUINTUPLO</h4>
+                    <ul class="mt-4 space-y-2">
+                        <li class="flex items-center"><i class="fas fa-check mr-2"></i>Conforto para 5 pessoas</li>
+                        <li class="flex items-center"><i class="fas fa-check mr-2"></i>Ar condicionado</li>
+                        <li class="flex items-center"><i class="fas fa-check mr-2"></i>Wi-Fi gratuito</li>
+                        <li class="flex items-center"><i class="fas fa-check mr-2"></i>Guarda-Roupas</li>
+                        <li class="flex items-center"><i class="fas fa-check mr-2"></i>Frigobar</li>
+                        <li class="flex items-center"><i class="fas fa-check mr-2"></i>TV a Cabo</li>
+                    </ul><br>
+                    <h4 class="text-left text-lg font-semibold">VALOR: 359,99</h4>
+                    <a href="https://wa.me/5584991166551?text=Olá,%20quero%20reservar%20o%20quarto%20quádruplo." target="_blank">
+                        <button class="mt-4 w-full bg-yellow-500 text-black py-2">Reserve agora</button>
+                    </a>
+                </div>
             </div>
         </div><br><br>
-
-        <div class="text-center mt-8">
-            <h2 class="text-2xl font-bold">Reserve sua estadia conosco</h2>
-            <p class="mt-2">Converse com nossos atendentes e descubra nossos quartos confortáveis e com preços acessíveis</p>
-            <div class="mt-4 space-x-2">
-                <button class="border border-black text-black py-2 px-4">Mais informações</button>
-            </div>
-        </div>
     </div>
 </div>
 <br><br><br><br><br>
