@@ -17,6 +17,8 @@ class CoffeeCarouselResource extends Resource
 {
     protected static ?string $model = CoffeeCarousel::class;
 
+    protected static ?string $modelLabel = "Café Carrosséis";
+
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
     public static function form(Form $form): Form

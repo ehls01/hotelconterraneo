@@ -17,6 +17,8 @@ class AboutBannerResource extends Resource
 {
     protected static ?string $model = AboutBanner::class;
 
+    protected static ?string $modelLabel = "Sobre Banner";
+
     protected static ?string $navigationIcon = 'heroicon-o-window';
 
     public static function form(Form $form): Form

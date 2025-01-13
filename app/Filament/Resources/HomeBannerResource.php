@@ -17,6 +17,8 @@ class HomeBannerResource extends Resource
 {
     protected static ?string $model = HomeBanner::class;
 
+    protected static ?string $modelLabel = "Home Banners";
+
     protected static ?string $navigationIcon = 'heroicon-o-window';
 
     public static function form(Form $form): Form

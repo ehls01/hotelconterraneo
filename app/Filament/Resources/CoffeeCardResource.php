@@ -17,6 +17,8 @@ class CoffeeCardResource extends Resource
 {
     protected static ?string $model = CoffeeCard::class;
 
+    protected static ?string $modelLabel = "Café Cards";
+
     protected static ?string $navigationIcon = 'heroicon-o-view-columns';
 
     public static function form(Form $form): Form

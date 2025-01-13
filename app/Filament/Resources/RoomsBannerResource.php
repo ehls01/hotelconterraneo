@@ -17,6 +17,8 @@ class RoomsBannerResource extends Resource
 {
     protected static ?string $model = RoomsBanner::class;
 
+    protected static ?string $modelLabel = "Quartos Banners";
+
     protected static ?string $navigationIcon = 'heroicon-o-window';
 
     public static function form(Form $form): Form

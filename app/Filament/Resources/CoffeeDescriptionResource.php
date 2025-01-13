@@ -17,6 +17,8 @@ class CoffeeDescriptionResource extends Resource
 {
     protected static ?string $model = CoffeeDescription::class;
 
+    protected static ?string $modelLabel = "Café Descrições";
+
     protected static ?string $navigationIcon = 'heroicon-o-folder-plus';
 
     public static function form(Form $form): Form
