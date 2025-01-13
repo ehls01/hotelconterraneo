@@ -2,9 +2,9 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\AboutMemberResource\Pages;
-use App\Filament\Resources\AboutMemberResource\RelationManagers;
-use App\Models\AboutMember;
+use App\Filament\Resources\ContactResource\Pages;
+use App\Filament\Resources\ContactResource\RelationManagers;
+use App\Models\Contact;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -13,26 +13,32 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class AboutMemberResource extends Resource
+class ContactResource extends Resource
 {
-    protected static ?string $model = AboutMember::class;
+    protected static ?string $model = Contact::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-user-group';
+    protected static ?string $navigationIcon = 'heroicon-o-phone-arrow-down-left';
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                Forms\Components\FileUpload::make('image')
-                    ->image()
+                Forms\Components\TextInput::make('email')
+                    ->email()
                     ->required(),
-                Forms\Components\TextInput::make('name')
+                Forms\Components\TextInput::make('address')
                     ->required(),
-                Forms\Components\TextInput::make('position')
+                Forms\Components\TextInput::make('facebook')
                     ->required(),
-                Forms\Components\TextInput::make('text')
+                Forms\Components\TextInput::make('number')
+                    ->required(),
+                Forms\Components\TextInput::make('map')
                     ->required(),
                 Forms\Components\TextInput::make('instagram')
+                    ->required(),
+                Forms\Components\TextInput::make('linkedin')
+                    ->required(),
+                Forms\Components\TextInput::make('youtube')
                     ->required(),
             ]);
     }
@@ -41,14 +47,21 @@ class AboutMemberResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\ImageColumn::make('image'),
-                Tables\Columns\TextColumn::make('name')
+                Tables\Columns\TextColumn::make('email')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('position')
+                Tables\Columns\TextColumn::make('address')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('text')
+                Tables\Columns\TextColumn::make('facebook')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('number')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('map')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('instagram')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('linkedin')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('youtube')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
@@ -76,7 +89,7 @@ class AboutMemberResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ManageAboutMembers::route('/'),
+            'index' => Pages\ManageContacts::route('/'),
         ];
     }
 }

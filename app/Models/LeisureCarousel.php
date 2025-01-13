@@ -9,7 +9,7 @@ class LeisureCarousel extends Model
 {
     use HasFactory;
 
-    protected $table = 'leisure_carousel';
+    protected $table = 'leisure_carousels';
 
     protected $fillable = [
         'image', 'title', 'text'

@@ -9,7 +9,7 @@ class CoffeeDescription extends Model
 {
     use HasFactory;
 
-    protected $table = 'coffee_description';
+    protected $table = 'coffee_descriptions';
 
     protected $fillable = [
         'title', 'text'

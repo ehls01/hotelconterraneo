@@ -2,9 +2,9 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\AboutMemberResource\Pages;
-use App\Filament\Resources\AboutMemberResource\RelationManagers;
-use App\Models\AboutMember;
+use App\Filament\Resources\CoffeeCarouselResource\Pages;
+use App\Filament\Resources\CoffeeCarouselResource\RelationManagers;
+use App\Models\CoffeeCarousel;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -13,11 +13,11 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class AboutMemberResource extends Resource
+class CoffeeCarouselResource extends Resource
 {
-    protected static ?string $model = AboutMember::class;
+    protected static ?string $model = CoffeeCarousel::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-user-group';
+    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
     public static function form(Form $form): Form
     {
@@ -25,14 +25,6 @@ class AboutMemberResource extends Resource
             ->schema([
                 Forms\Components\FileUpload::make('image')
                     ->image()
-                    ->required(),
-                Forms\Components\TextInput::make('name')
-                    ->required(),
-                Forms\Components\TextInput::make('position')
-                    ->required(),
-                Forms\Components\TextInput::make('text')
-                    ->required(),
-                Forms\Components\TextInput::make('instagram')
                     ->required(),
             ]);
     }
@@ -42,14 +34,6 @@ class AboutMemberResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\ImageColumn::make('image'),
-                Tables\Columns\TextColumn::make('name')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('position')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('text')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('instagram')
-                    ->searchable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
@@ -76,7 +60,7 @@ class AboutMemberResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ManageAboutMembers::route('/'),
+            'index' => Pages\ManageCoffeeCarousels::route('/'),
         ];
     }
 }

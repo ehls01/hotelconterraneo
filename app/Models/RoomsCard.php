@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class RoomCard extends Model
+class RoomsCard extends Model
 {
     use HasFactory;
 
-    protected $table = 'rooms_card';
+    protected $table = 'rooms_cards';
 
     protected $fillable = [
         'title', 'text', 'price', 'type'

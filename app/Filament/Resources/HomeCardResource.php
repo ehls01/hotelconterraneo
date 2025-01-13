@@ -2,9 +2,9 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\AboutMemberResource\Pages;
-use App\Filament\Resources\AboutMemberResource\RelationManagers;
-use App\Models\AboutMember;
+use App\Filament\Resources\HomeCardResource\Pages;
+use App\Filament\Resources\HomeCardResource\RelationManagers;
+use App\Models\HomeCard;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -13,11 +13,11 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class AboutMemberResource extends Resource
+class HomeCardResource extends Resource
 {
-    protected static ?string $model = AboutMember::class;
+    protected static ?string $model = HomeCard::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-user-group';
+    protected static ?string $navigationIcon = 'heroicon-o-view-columns';
 
     public static function form(Form $form): Form
     {
@@ -26,13 +26,7 @@ class AboutMemberResource extends Resource
                 Forms\Components\FileUpload::make('image')
                     ->image()
                     ->required(),
-                Forms\Components\TextInput::make('name')
-                    ->required(),
-                Forms\Components\TextInput::make('position')
-                    ->required(),
-                Forms\Components\TextInput::make('text')
-                    ->required(),
-                Forms\Components\TextInput::make('instagram')
+                Forms\Components\TextInput::make('title')
                     ->required(),
             ]);
     }
@@ -42,13 +36,7 @@ class AboutMemberResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\ImageColumn::make('image'),
-                Tables\Columns\TextColumn::make('name')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('position')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('text')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('instagram')
+                Tables\Columns\TextColumn::make('title')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
@@ -76,7 +64,7 @@ class AboutMemberResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ManageAboutMembers::route('/'),
+            'index' => Pages\ManageHomeCards::route('/'),
         ];
     }
 }

@@ -9,9 +9,9 @@ class CoffeeCard extends Model
 {
     use HasFactory;
 
-    protected $table = 'coffee_card';
+    protected $table = 'coffee_cards';
 
     protected $fillable = [
-        'title', 'text', 'image'
+        'image', 'title', 'text'
     ];
 }

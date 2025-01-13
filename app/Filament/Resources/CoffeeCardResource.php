@@ -2,9 +2,9 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\AboutMemberResource\Pages;
-use App\Filament\Resources\AboutMemberResource\RelationManagers;
-use App\Models\AboutMember;
+use App\Filament\Resources\CoffeeCardResource\Pages;
+use App\Filament\Resources\CoffeeCardResource\RelationManagers;
+use App\Models\CoffeeCard;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -13,26 +13,22 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class AboutMemberResource extends Resource
+class CoffeeCardResource extends Resource
 {
-    protected static ?string $model = AboutMember::class;
+    protected static ?string $model = CoffeeCard::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-user-group';
+    protected static ?string $navigationIcon = 'heroicon-o-view-columns';
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                Forms\Components\FileUpload::make('image')
-                    ->image()
-                    ->required(),
-                Forms\Components\TextInput::make('name')
-                    ->required(),
-                Forms\Components\TextInput::make('position')
+                Forms\Components\TextInput::make('title')
                     ->required(),
                 Forms\Components\TextInput::make('text')
                     ->required(),
-                Forms\Components\TextInput::make('instagram')
+                Forms\Components\FileUpload::make('image')
+                    ->image()
                     ->required(),
             ]);
     }
@@ -41,15 +37,11 @@ class AboutMemberResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\ImageColumn::make('image'),
-                Tables\Columns\TextColumn::make('name')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('position')
+                Tables\Columns\TextColumn::make('title')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('text')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('instagram')
-                    ->searchable(),
+                Tables\Columns\ImageColumn::make('image'),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
@@ -76,7 +68,7 @@ class AboutMemberResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ManageAboutMembers::route('/'),
+            'index' => Pages\ManageCoffeeCards::route('/'),
         ];
     }
 }

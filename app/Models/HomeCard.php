@@ -9,7 +9,7 @@ class HomeCard extends Model
 {
     use HasFactory;
 
-    protected $table = 'home_card';
+    protected $table = 'home_cards';
 
     protected $fillable = [
         'image', 'title'
