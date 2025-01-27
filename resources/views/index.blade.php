@@ -14,11 +14,13 @@
     
 <x-navbar />
 
-<div class="bg-cover pt-4 bg-center h-screen" style="background-image: url('https://news.airbnb.com/wp-content/uploads/sites/4/2020/05/HotelTonight_PoolsideViewsl-2.jpg?fit=1920%2C1080');">
+<div class="bg-cover pt-4 bg-center h-screen" style="background-image: url(' {{ Storage::url($banner[0]->image) }}');">
     <div class="flex items-center justify-center h-full bg-black bg-opacity-50">
         <div class="text-center text-white">
-            <h1 class="text-5xl font-bold mb-4">Bem-vindo ao hotel Conterrâneo!</h1>
-            <p class="text-lg mb-8">Descubra um refúgio de conforto e hospitalidade. Explore nossas acomodações e serviços pensados para tornar sua estadia inesquecível.</p>
+            <h1 class="text-5xl font-bold mb-4"> {{ $banner[0]->title}} </h1>
+<!-- Suggested code may be subject to a license. Learn more: ~LicenseLog:2908256096. -->
+            <p class="text-lg mb-8"> {{ $banner[0]->text}}</p>
+
             <div class="space-x-4">
                 <a>
                     <button class="border border-white text-white px-6 py-2 rounded" onclick="scrollToSection('reservas')"> Explorar </button>
@@ -47,13 +49,13 @@ function scrollToSection(id) {
     <p class="text-lg text-gray-600 mb-8">Descubra o melhor do nosso hotel em fotos.</p>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
         <div class="bg-white border border-gray300 overflow-hidden">
-            <img alt="Imagem de um quarto de hotel" class="w-full" height="400" src="https://piazitoparkhotel.com.br/wp-content/uploads/elementor/thumbs/SON0983-q7dvcwf260vv0hh0wcsk2ulrruvnta4w6x72lc1sn4.jpg" width="400"/>
+            <img alt="Imagem de um quarto de hotel" class="w-full" height="400" src=" {{ Storage::url($banner[0]->image) }} " width="400"/>
             <div class="p-4">
                 <h2 class="text-xl font-bold mb-2">Conforto &amp; Lazer</h2>
             </div>
         </div>
         <div class="bg-white border border-gray300 overflow-hidden">
-            <img alt="Imagem de um cachorro e um gato em um quarto de hotel" class="w-full" height="400" src="https://piazitoparkhotel.com.br/wp-content/uploads/elementor/thumbs/SON0983-q7dvcwf260vv0hh0wcsk2ulrruvnta4w6x72lc1sn4.jpg" width="400"/>
+            <img alt="Imagem de um cachorro e um gato em um quarto de hotel" class="w-full" height="400" src=" {{ Storage::url($banner[0]->image) }} " width="400"/>
             <div class="p-4">
                 <h2 class="text-xl font-bold mb-2">Seu Pet é mais do que bem vindo</h2>
             </div>

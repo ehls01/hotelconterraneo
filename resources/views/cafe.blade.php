@@ -14,21 +14,22 @@
 <x-navbar/>
 
 <!-- Carousel Section -->
-<div class="bg-gray-300 h-[70vh] pt-4 overflow-hidden" id="carousel-container">
+<div class="bg-gray-300 w-full pt-4 overflow-hidden" id="carousel-container">
   <!-- Carousel Wrapper -->
   <div class="flex transition-transform duration-500 ease-in-out" id="carousel">
     <!-- Slides -->
     <div class="flex-shrink-0 w-full">
-      <img alt="Placeholder image" class="h-full w-full object-contain" src="https://sandihotel.com.br/wp-content/uploads/2022/09/Hotel-em-paraty-sandi-pousada-centro-historico-gastronomia-cafe-da-manha-1-1-1.jpg" />
+      <img alt="Placeholder image" class="h-full w-full object-cover" src="https://sandihotel.com.br/wp-content/uploads/2022/09/Hotel-em-paraty-sandi-pousada-centro-historico-gastronomia-cafe-da-manha-1-1-1.jpg" />
     </div>
     <div class="flex-shrink-0 w-full">
-      <img alt="Placeholder image" class="h-full w-full object-contain" src="https://sandihotel.com.br/wp-content/uploads/2022/09/Hotel-em-paraty-sandi-pousada-centro-historico-gastronomia-cafe-da-manha-1-1-1.jpg" />
+      <img alt="Placeholder image" class="h-full w-full object-cover" src="https://sandihotel.com.br/wp-content/uploads/2022/09/Hotel-em-paraty-sandi-pousada-centro-historico-gastronomia-cafe-da-manha-1-1-1.jpg" />
     </div>
     <div class="flex-shrink-0 w-full">
-      <img alt="Placeholder image" class="h-full w-full object-cotain" src="https://sandihotel.com.br/wp-content/uploads/2022/09/Hotel-em-paraty-sandi-pousada-centro-historico-gastronomia-cafe-da-manha-1-1-1.jpg" />
+      <img alt="Placeholder image" class="h-full w-full object-cover" src="https://sandihotel.com.br/wp-content/uploads/2022/09/Hotel-em-paraty-sandi-pousada-centro-historico-gastronomia-cafe-da-manha-1-1-1.jpg" />
     </div>
   </div>
 </div>
+
 
 <!-- JavaScript for automatic slide change -->
 <script>
@@ -45,21 +46,23 @@
 
 
 <!-- POSTS -->
-<div class="flex flex-col md:flex-row justify-between items-start mt-8 px-40">
+<div class="flex flex-col md:flex-row justify-between items-start mt-8 px-4 md:px-40">
   <div class="md:w-1/2">
-    <h1 class="text-3xl font-bold text-black">Comece o dia com um café delicioso</h1>
+    <h1 class="text-3xl font-bold text-black text-center md:text-left">
+      Comece o dia com um café delicioso
+    </h1>
   </div>
   <div class="md:w-1/2 mt-4 md:mt-0">
-    <p class="text-gray-700">
+    <p class="text-gray-700 text-center md:text-left">
       Nosso café da manhã oferece uma variedade de opções deliciosas para satisfazer todos os gostos. Com ingredientes frescos e preparados com cuidado, garantimos uma refeição matinal de alta qualidade.
     </p>
-    <div class="mt-4 flex space-x-4"> <!-- Alterei para flex -->
+    <div class="mt-4 flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 justify-center sm:justify-start">
       <a href="https://wa.me/5584991166551?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20o%20menu." target="_blank">
-        <button class="border border-black text-black py-2 px-4">Reservar Agora</button>
+        <button class="border border-black text-black py-2 px-4 w-full sm:w-auto">Reservar Agora</button>
       </a>
 
       <button 
-        class="border border-black text-black py-2 px-4" 
+        class="border border-black text-black py-2 px-4 w-full sm:w-auto" 
         onclick="scrollToSection('reservas')">
         Ver Menu
       </button>
