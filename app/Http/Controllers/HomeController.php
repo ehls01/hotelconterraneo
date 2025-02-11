@@ -14,8 +14,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $banner = HomeBanner::latest()->get();
-        $cards = HomeCard::latest()->get();
-        return view('index',compact("banner","cards"));
+        //
     }
 }

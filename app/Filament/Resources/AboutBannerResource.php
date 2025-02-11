@@ -19,6 +19,8 @@ class AboutBannerResource extends Resource
 
     protected static ?string $modelLabel = "Sobre Banner";
 
+    protected static ?string $navigationGroup = "Sobre";
+
     protected static ?string $navigationIcon = 'heroicon-o-window';
 
     public static function form(Form $form): Form
@@ -38,12 +40,13 @@ class AboutBannerResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
+            ->paginated(false)
+
             ->columns([
                 Tables\Columns\ImageColumn::make('image'),
-                Tables\Columns\TextColumn::make('title')
-                    ->searchable(),
+                Tables\Columns\TextColumn::make('title'),
                 Tables\Columns\TextColumn::make('text')
-                    ->searchable(),
+                    ->words(12),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
@@ -58,7 +61,7 @@ class AboutBannerResource extends Resource
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
-                Tables\Actions\DeleteAction::make(),
+                // Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
@@ -73,4 +76,10 @@ class AboutBannerResource extends Resource
             'index' => Pages\ManageAboutBanners::route('/'),
         ];
     }
+
+    public static function canCreate(): bool
+    {
+        return false; // Disables the "Create" button
+    }
+
 }

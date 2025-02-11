@@ -14,7 +14,7 @@
 <x-navbar/>
 
 <!-- Carousel Section -->
-<div class="bg-gray-300 w-full pt-4 overflow-hidden" id="carousel-container">
+<div class="bg-gray-300 h-[70vh] w-full pt-4 overflow-hidden" id="carousel-container">
   <!-- Carousel Wrapper -->
   <div class="flex transition-transform duration-500 ease-in-out" id="carousel">
     <!-- Slides -->

@@ -19,6 +19,8 @@ class LeisureCarouselResource extends Resource
 
     protected static ?string $modelLabel = "Lazer Carroséis";
 
+    protected static ?string $navigationGroup = "Lazer";
+
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
     public static function form(Form $form): Form

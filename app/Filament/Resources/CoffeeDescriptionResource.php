@@ -19,7 +19,9 @@ class CoffeeDescriptionResource extends Resource
 
     protected static ?string $modelLabel = "Café Descrições";
 
-    protected static ?string $navigationIcon = 'heroicon-o-folder-plus';
+    protected static ?string $navigationGroup = "Café";
+
+    protected static ?string $navigationIcon = 'tabler-mug';
 
     public static function form(Form $form): Form
     {
@@ -35,11 +37,12 @@ class CoffeeDescriptionResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
+            ->paginated(false)
+
             ->columns([
-                Tables\Columns\TextColumn::make('title')
-                    ->searchable(),
+                Tables\Columns\TextColumn::make('title'),
                 Tables\Columns\TextColumn::make('text')
-                    ->searchable(),
+                    ->words(12),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
@@ -54,7 +57,7 @@ class CoffeeDescriptionResource extends Resource
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
-                Tables\Actions\DeleteAction::make(),
+                // Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

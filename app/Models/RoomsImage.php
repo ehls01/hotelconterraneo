@@ -15,8 +15,12 @@ class RoomsImage extends Model
         'image', 'rooms_card_id'
     ];
 
+    protected $casts = [
+        'image' => 'array'
+    ];
+
     public function roomCard()
     {
-        return $this->belongsTo(RoomCard::class, 'rooms_card_id');
+        return $this->belongsTo(RoomsCard::class, 'rooms_card_id');
     }
 }

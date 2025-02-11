@@ -14,12 +14,11 @@
     
 <x-navbar />
 
-<div class="bg-cover pt-4 bg-center h-screen" style="background-image: url(' {{ Storage::url($banner[0]->image) }}');">
-    <div class="flex items-center justify-center h-full bg-black bg-opacity-50">
+<div class="bg-cover pt-4 bg-center h-screen bg-[url({{asset('storage/'.$home_banners[0]->image)}})]">
+    <div class="flex items-center justify-center h-full bg-black bg-opacity-50">s
         <div class="text-center text-white">
-            <h1 class="text-5xl font-bold mb-4"> {{ $banner[0]->title}} </h1>
-<!-- Suggested code may be subject to a license. Learn more: ~LicenseLog:2908256096. -->
-            <p class="text-lg mb-8"> {{ $banner[0]->text}}</p>
+            <h1 class="text-5xl font-bold mb-4"> {{$home_banners[0]->title}}</h1>
+            <p class="text-lg mb-8"> {{$home_banners[0]->text}}</p>
 
             <div class="space-x-4">
                 <a>
@@ -48,54 +47,16 @@ function scrollToSection(id) {
     <h1 class="text-4xl font-bold mb-4">Galeria de Imagens</h1>
     <p class="text-lg text-gray-600 mb-8">Descubra o melhor do nosso hotel em fotos.</p>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        
+        @foreach ($home_cards as $HomeCard)
         <div class="bg-white border border-gray300 overflow-hidden">
-            <img alt="Imagem de um quarto de hotel" class="w-full" height="400" src=" {{ Storage::url($banner[0]->image) }} " width="400"/>
+            <img alt="Imagem de um quarto de hotel" class="w-full h-[300px] object-cover"  src="{{asset('storage/'.$HomeCard->image)}}" width="400"/>
             <div class="p-4">
-                <h2 class="text-xl font-bold mb-2">Conforto &amp; Lazer</h2>
+                <h2 class="text-xl font-bold mb-2">{{$HomeCard->title}}</h2>
             </div>
         </div>
-        <div class="bg-white border border-gray300 overflow-hidden">
-            <img alt="Imagem de um cachorro e um gato em um quarto de hotel" class="w-full" height="400" src=" {{ Storage::url($banner[0]->image) }} " width="400"/>
-            <div class="p-4">
-                <h2 class="text-xl font-bold mb-2">Seu Pet é mais do que bem vindo</h2>
-            </div>
-        </div>
-        <div class="bg-white border border-gray300 overflow-hidden">
-            <img alt="Imagem de pratos de comida" class="w-full" height="400" src="https://piazitoparkhotel.com.br/wp-content/uploads/elementor/thumbs/SON0983-q7dvcwf260vv0hh0wcsk2ulrruvnta4w6x72lc1sn4.jpg" width="400"/>
-            <div class="p-4">
-                <h2 class="text-xl font-bold mb-2">Culinária Única</h2>
-            </div>
-        </div>
-        <div class="bg-white border border-gray300 overflow-hidden">
-            <img alt="Imagem de uma piscina" class="w-full" height="400" src="https://piazitoparkhotel.com.br/wp-content/uploads/elementor/thumbs/SON0983-q7dvcwf260vv0hh0wcsk2ulrruvnta4w6x72lc1sn4.jpg" width="400"/>
-            <div class="p-4">
-                <h2 class="text-xl font-bold mb-2">O lazer que você merece!</h2>
-            </div>
-        </div>
-        <div class="bg-white border border-gray300 overflow-hidden">
-            <img alt="Imagem de um quarto de hotel" class="w-full" height="400" src="https://piazitoparkhotel.com.br/wp-content/uploads/elementor/thumbs/SON0983-q7dvcwf260vv0hh0wcsk2ulrruvnta4w6x72lc1sn4.jpg" width="400"/>
-            <div class="p-4">
-                <h2 class="text-xl font-bold mb-2">Conforto &amp; Lazer</h2>
-            </div>
-        </div>
-        <div class="bg-white border border-gray300 overflow-hidden">
-            <img alt="Imagem de um cachorro e um gato em um quarto de hotel" class="w-full" height="400" src="https://piazitoparkhotel.com.br/wp-content/uploads/elementor/thumbs/SON0983-q7dvcwf260vv0hh0wcsk2ulrruvnta4w6x72lc1sn4.jpg" width="400"/>
-            <div class="p-4">
-                <h2 class="text-xl font-bold mb-2">Seu Pet é mais do que bem vindo</h2>
-            </div>
-        </div>
-        <div class="bg-white border border-gray300 overflow-hidden">
-            <img alt="Imagem de pratos de comida" class="w-full" height="400" src="https://piazitoparkhotel.com.br/wp-content/uploads/elementor/thumbs/SON0983-q7dvcwf260vv0hh0wcsk2ulrruvnta4w6x72lc1sn4.jpg" width="400"/>
-            <div class="p-4">
-                <h2 class="text-xl font-bold mb-2">Culinária Única</h2>
-            </div>
-        </div>
-        <div class="bg-white border border-gray300 overflow-hidden">
-            <img alt="Imagem de uma piscina" class="w-full" height="400" src="https://piazitoparkhotel.com.br/wp-content/uploads/elementor/thumbs/SON0983-q7dvcwf260vv0hh0wcsk2ulrruvnta4w6x72lc1sn4.jpg" width="400"/>
-            <div class="p-4">
-                <h2 class="text-xl font-bold mb-2">O lazer que você merece!</h2>
-            </div>
-        </div>
+        @endforeach
+
     </div>
 </div>
 <br><br><br><br>

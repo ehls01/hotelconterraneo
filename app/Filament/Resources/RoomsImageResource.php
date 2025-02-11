@@ -2,22 +2,25 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\RoomsImageResource\Pages;
-use App\Filament\Resources\RoomsImageResource\RelationManagers;
-use App\Models\RoomsImage;
 use Filament\Forms;
-use Filament\Forms\Form;
-use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Forms\Form;
+use App\Models\RoomsImage;
 use Filament\Tables\Table;
+use Forms\Components\Select;
+use Filament\Resources\Resource;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use App\Filament\Resources\RoomsImageResource\Pages;
+use App\Filament\Resources\RoomsImageResource\RelationManagers;
 
 class RoomsImageResource extends Resource
 {
     protected static ?string $model = RoomsImage::class;
 
     protected static ?string $modelLabel = "Quartos Imagens";
+
+    protected static ?string $navigationGroup = "Quartos";
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
@@ -27,10 +30,11 @@ class RoomsImageResource extends Resource
             ->schema([
                 Forms\Components\FileUpload::make('image')
                     ->image()
-                    ->required(),
-                Forms\Components\TextInput::make('rooms_card_id')
                     ->required()
-                    ->numeric(),
+                    ->multiple(),
+                Forms\Components\Select::make('rooms_card_id')
+                    ->required()
+                    ->relationship('roomCard','title'),
             ]);
     }
 

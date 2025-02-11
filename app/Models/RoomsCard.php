@@ -17,6 +17,6 @@ class RoomsCard extends Model
 
     public function roomImages()
     {
-        return $this->hasMany(RoomImage::class, 'rooms_card_id');
+        return $this->hasMany(RoomsImage::class, 'rooms_card_id');
     }
 }

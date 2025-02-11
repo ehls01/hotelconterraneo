@@ -19,6 +19,8 @@ class HomeBannerResource extends Resource
 
     protected static ?string $modelLabel = "Home Banners";
 
+    protected static ?string $navigationGroup = "Página incial";
+
     protected static ?string $navigationIcon = 'heroicon-o-window';
 
     public static function form(Form $form): Form
@@ -38,12 +40,13 @@ class HomeBannerResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
+            ->paginated(false)
+
             ->columns([
                 Tables\Columns\ImageColumn::make('image'),
-                Tables\Columns\TextColumn::make('title')
-                    ->searchable(),
+                Tables\Columns\TextColumn::make('title'),
                 Tables\Columns\TextColumn::make('text')
-                    ->searchable(),
+                    ->words(12),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
@@ -73,4 +76,10 @@ class HomeBannerResource extends Resource
             'index' => Pages\ManageHomeBanners::route('/'),
         ];
     }
+
+    public static function canCreate(): bool
+    {
+        return true; // Disables the "Create" button
+    }
+
 }

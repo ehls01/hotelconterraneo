@@ -20,12 +20,12 @@
             <img
                 alt="Imagem do Hotel"
                 class="w-[800px] h-[600px] object-cover rounded-lg"
-                src="https://omnibees.com/wp-content/uploads/2019/10/iStock-1210630161.png"
+                src="{{asset('storage/'.$about_banners->image)}}"
             />
         </div>
         <div class="w-full md:w-1/2 md:pl-8 mt-4 md:mt-0">
-            <h1 class="text-4xl font-bold mt-4">Uma história de tradição e excelência</h1>
-            <p class="text-lg text-gray-600 mt-4">O Hotel Conterrâneo foi fundado em 2010 com o objetivo de proporcionar aos seus hóspedes uma experiência única e inesquecível. Desde então, temos nos dedicado a oferecer serviços de qualidade e a garantir o conforto e satisfação de todos os nossos visitantes.</p>
+            <h1 class="text-4xl font-bold mt-4">{{$about_banners->title}}</h1>
+            <p class="text-lg text-gray-600 mt-4">{{$about_banners->text}}</p>
             <div class="mt-6 flex space-x-4">
                 <a>
                     <button class="px-4 py-2 border border-gray-900 text-gray-900 hover:bg-gray-100" onclick="scrollToSection('reservas')">Saiba mais</button>
@@ -57,124 +57,30 @@ function scrollToSection(id) {
     </section>
     <section class="max-w-6xl mx-auto px-4">
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="text-center">
-          <div class="flex items-center justify-center">
-              <img
-                  alt="Foto de João Silva"
-                  class="h-56 w-56 object-cover rounded-full border-4 border-yellow-300"
-                  height="220"
-                  src="https://storage.googleapis.com/a1aa/image/23eq2nMmv4SkSKnlWgDuj6hi7PvmFMJHA50XT1MiENIfytqTA.jpg"
-                  width="220"
-              />
-          </div>
-          <h3 class="text-xl font-semibold text-gray-900 mt-4">João Silva</h3>
-          <p class="text-gray-500">Gerente Geral</p>
-          <p class="text-gray-600 mt-2">Responsável por supervisionar as operações diárias do hotel</p>
-          <div class="flex justify-center space-x-4 mt-4">
-            <a class="text-gray-500 hover:text-gray-900" href="#">
-              <i class="fab fa-instagram"></i>
-            </a>
-          </div>
-        </div>
-        <div class="text-center">
-          <div class="flex items-center justify-center">
-            <img
-              alt="Foto de Maria Santos"
-              class="h-56 w-56 object-cover rounded-full border-4 border-yellow-300"
-              height="220"
-              src="https://storage.googleapis.com/a1aa/image/GpZT5FcQ794NDpcRbjzGRr3J2vzdPZ8rGxNRiiRJFlfg5W1JA.jpg"
-              width="220"
-            />
-          </div>
-          <h3 class="text-xl font-semibold text-gray-900 mt-4">Maria Santos</h3>
-          <p class="text-gray-500">Chefe de Cozinha</p>
-          <p class="text-gray-600 mt-2">Responsável por criar e supervisionar os pratos deliciosos do nosso restaurante</p>
-          <div class="flex justify-center space-x-4 mt-4">
-            <a class="text-gray-500 hover:text-gray-900" href="#">
-              <i class="fab fa-instagram"></i>
-            </a>
-          </div>
-        </div>
-        <div class="text-center">
-          <div class="flex items-center justify-center">
-            <img
-              alt="Foto de Pedro Almeida"
-              class="h-56 w-56 object-cover rounded-full border-4 border-yellow-300"
-              height="220"
-              src="https://storage.googleapis.com/a1aa/image/IYeI5nGftIr17UWYpu2OwvpA4DtHgIuNs9PuwqkWfHpAmbVnA.jpg"
-              width="220"
-            />
-          </div>
-          <h3 class="text-xl font-semibold text-gray-900 mt-4">Pedro Almeida</h3>
-          <p class="text-gray-500">Gerente de Atendimento ao Cliente</p>
-          <p class="text-gray-600 mt-2">Responsável por garantir que todos os hóspedes tenham uma experiência excepcional</p>
-          <div class="flex justify-center space-x-4 mt-4">
-            <a class="text-gray-500 hover:text-gray-900" href="#">
-              <i class="fab fa-instagram"></i>
-            </a>
-          </div>
-        </div>
-      </div>
-    </section><br>  
 
-    <section class="max-w-6xl mx-auto px-4">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        @foreach ($about_members as $AboutMember)
         <div class="text-center">
           <div class="flex items-center justify-center">
-              <img
-                  alt="Foto de João Silva"
-                  class="h-56 w-56 object-cover rounded-full border-4 border-yellow-300"
-                  height="220"
-                  src="https://storage.googleapis.com/a1aa/image/23eq2nMmv4SkSKnlWgDuj6hi7PvmFMJHA50XT1MiENIfytqTA.jpg"
-                  width="220"
-              />
+            <img
+              alt="Foto de {{$AboutMember->name}}"
+              class="h-56 w-56 object-cover rounded-full border-4 border-yellow-300"
+              height="220"
+              src="{{asset('storage/'.$AboutMember->image)}}"
+              width="220"
+            />
           </div>
-          <h3 class="text-xl font-semibold text-gray-900 mt-4">João Silva</h3>
-          <p class="text-gray-500">Gerente Geral</p>
-          <p class="text-gray-600 mt-2">Responsável por supervisionar as operações diárias do hotel</p>
+          <h3 class="text-xl font-semibold text-gray-900 mt-4">{{$AboutMember->name}}</h3>
+          <p class="text-gray-500">{{$AboutMember->position}}</p>
+          <p class="text-gray-600 mt-2">{{$AboutMember->text}}</p>
           <div class="flex justify-center space-x-4 mt-4">
-            <a class="text-gray-500 hover:text-gray-900" href="#">
+            <a class="text-gray-500 hover:text-gray-900" href="{{$AboutMember->instagram}}">
               <i class="fab fa-instagram"></i>
             </a>
           </div>
         </div>
-        <div class="text-center">
-          <div class="flex items-center justify-center">
-            <img
-              alt="Foto de Maria Santos"
-              class="h-56 w-56 object-cover rounded-full border-4 border-yellow-300"
-              height="220"
-              src="https://storage.googleapis.com/a1aa/image/GpZT5FcQ794NDpcRbjzGRr3J2vzdPZ8rGxNRiiRJFlfg5W1JA.jpg"
-              width="220"
-            />
-          </div>
-          <h3 class="text-xl font-semibold text-gray-900 mt-4">Maria Santos</h3>
-          <p class="text-gray-500">Chefe de Cozinha</p>
-          <p class="text-gray-600 mt-2">Responsável por criar e supervisionar os pratos deliciosos do nosso restaurante</p>
-          <div class="flex justify-center space-x-4 mt-4">
-            <a class="text-gray-500 hover:text-gray-900" href="#">
-              <i class="fab fa-instagram"></i>
-            </a>
-          </div>
-        </div>
-        <div class="text-center">
-          <div class="flex items-center justify-center">
-            <img
-              alt="Foto de Pedro Almeida"
-              class="h-56 w-56 object-cover rounded-full border-4 border-yellow-300"
-              height="220"
-              src="https://storage.googleapis.com/a1aa/image/IYeI5nGftIr17UWYpu2OwvpA4DtHgIuNs9PuwqkWfHpAmbVnA.jpg"
-              width="220"
-            />
-          </div>
-          <h3 class="text-xl font-semibold text-gray-900 mt-4">Pedro Almeida</h3>
-          <p class="text-gray-500">Gerente de Atendimento ao Cliente</p>
-          <p class="text-gray-600 mt-2">Responsável por garantir que todos os hóspedes tenham uma experiência excepcional</p>
-          <div class="flex justify-center space-x-4 mt-4">
-            <a class="text-gray-500 hover:text-gray-900" href="#">
-              <i class="fab fa-instagram"></i>
-            </a>
-          </div>
+        @endforeach
+
+        
         </div>
       </div>
     </section>

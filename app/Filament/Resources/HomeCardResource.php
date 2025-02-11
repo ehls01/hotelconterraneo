@@ -19,6 +19,8 @@ class HomeCardResource extends Resource
 
     protected static ?string $modelLabel = "Home Cards";
 
+    protected static ?string $navigationGroup = "Página incial";
+
     protected static ?string $navigationIcon = 'heroicon-o-view-columns';
 
     public static function form(Form $form): Form

@@ -19,7 +19,9 @@ class CoffeeCardResource extends Resource
 
     protected static ?string $modelLabel = "Café Cards";
 
-    protected static ?string $navigationIcon = 'heroicon-o-view-columns';
+    protected static ?string $navigationGroup = "Café";
+
+    protected static ?string $navigationIcon = 'tabler-mug';
 
     public static function form(Form $form): Form
     {
@@ -38,11 +40,12 @@ class CoffeeCardResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
+            ->paginated(false)
+
             ->columns([
-                Tables\Columns\TextColumn::make('title')
-                    ->searchable(),
+                Tables\Columns\TextColumn::make('title'),
                 Tables\Columns\TextColumn::make('text')
-                    ->searchable(),
+                    ->words(12),
                 Tables\Columns\ImageColumn::make('image'),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
@@ -58,7 +61,7 @@ class CoffeeCardResource extends Resource
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
-                Tables\Actions\DeleteAction::make(),
+                // Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

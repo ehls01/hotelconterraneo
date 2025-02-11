@@ -6,8 +6,9 @@ use Illuminate\Http\Request;
 
 class SobreController extends Controller
 {
-    public function index()
+    public function showAboutPage()
     {
         //
     }
+    
 }

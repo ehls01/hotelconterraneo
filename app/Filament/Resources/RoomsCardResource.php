@@ -19,6 +19,8 @@ class RoomsCardResource extends Resource
 
     protected static ?string $modelLabel = "Quartos Cards";
 
+    protected static ?string $navigationGroup = "Quartos";
+
     protected static ?string $navigationIcon = 'heroicon-o-view-columns';
 
     public static function form(Form $form): Form

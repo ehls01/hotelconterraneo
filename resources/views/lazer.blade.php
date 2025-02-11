@@ -76,7 +76,6 @@
   });
 </script>
 
-<br>
 <!-- POSTS -->
 
 <div class="flex flex-col md:flex-row justify-between items-start mt-8 px-4 md:px-40">

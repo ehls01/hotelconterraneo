@@ -19,6 +19,8 @@ class AboutMemberResource extends Resource
 
     protected static ?string $modelLabel = "Sobre Membros";
 
+    protected static ?string $navigationGroup = "Sobre";
+
     protected static ?string $navigationIcon = 'heroicon-o-user-group';
 
     public static function form(Form $form): Form
