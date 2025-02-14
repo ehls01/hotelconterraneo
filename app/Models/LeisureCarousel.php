@@ -11,6 +11,8 @@ class LeisureCarousel extends Model
 
     protected $table = 'leisure_carousels';
 
+    protected $casts = ['image'=>'array'];
+
     protected $fillable = [
         'image', 'title', 'text'
     ];

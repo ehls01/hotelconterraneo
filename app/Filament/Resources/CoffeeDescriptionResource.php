@@ -19,7 +19,7 @@ class CoffeeDescriptionResource extends Resource
 
     protected static ?string $modelLabel = "Café Descrições";
 
-    protected static ?string $navigationGroup = "Café";
+    protected static ?string $navigationGroup = "Café da Manhã";
 
     protected static ?string $navigationIcon = 'tabler-mug';
 

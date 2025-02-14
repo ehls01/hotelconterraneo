@@ -20,7 +20,9 @@ class RoomsImageResource extends Resource
 
     protected static ?string $modelLabel = "Quartos Imagens";
 
-    protected static ?string $navigationGroup = "Quartos";
+    protected static ?string $navigationGroup = "Nossos Quartos";
+
+    protected static ?int $navigationSort = -8;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
@@ -43,8 +45,8 @@ class RoomsImageResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\ImageColumn::make('image'),
-                Tables\Columns\TextColumn::make('rooms_card_id')
-                    ->numeric()
+                Tables\Columns\TextColumn::make('roomCard.title')
+                    ->searchable()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()

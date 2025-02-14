@@ -19,7 +19,7 @@ class CoffeeCarouselResource extends Resource
 
     protected static ?string $modelLabel = "Café Carrosséis";
 
-    protected static ?string $navigationGroup = "Café";
+    protected static ?string $navigationGroup = "Café da Manhã";
 
     protected static ?string $navigationIcon = 'tabler-mug';
 
@@ -28,6 +28,7 @@ class CoffeeCarouselResource extends Resource
         return $form
             ->schema([
                 Forms\Components\FileUpload::make('image')
+                    ->multiple()
                     ->image()
                     ->required(),
             ]);

@@ -19,7 +19,9 @@ class AboutBannerResource extends Resource
 
     protected static ?string $modelLabel = "Sobre Banner";
 
-    protected static ?string $navigationGroup = "Sobre";
+    protected static ?string $navigationGroup = "Sobre Nós";
+
+    protected static ?int $navigationSort = -9;
 
     protected static ?string $navigationIcon = 'heroicon-o-window';
 
@@ -61,7 +63,7 @@ class AboutBannerResource extends Resource
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
-                // Tables\Actions\DeleteAction::make(),
+                Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
@@ -79,7 +81,7 @@ class AboutBannerResource extends Resource
 
     public static function canCreate(): bool
     {
-        return false; // Disables the "Create" button
+        return true; // Disables the "Create" button
     }
 
 }

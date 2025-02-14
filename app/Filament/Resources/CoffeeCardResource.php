@@ -12,6 +12,7 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Filament\Forms\Components\RichEditor;
 
 class CoffeeCardResource extends Resource
 {
@@ -19,7 +20,7 @@ class CoffeeCardResource extends Resource
 
     protected static ?string $modelLabel = "Café Cards";
 
-    protected static ?string $navigationGroup = "Café";
+    protected static ?string $navigationGroup = "Café da Manhã";
 
     protected static ?string $navigationIcon = 'tabler-mug';
 
@@ -29,8 +30,13 @@ class CoffeeCardResource extends Resource
             ->schema([
                 Forms\Components\TextInput::make('title')
                     ->required(),
-                Forms\Components\TextInput::make('text')
-                    ->required(),
+                Forms\Components\RichEditor::make('text')
+                    ->required()
+                    ->disableToolbarButtons([
+                        'attachFiles',
+                        'strike',
+                        'underline'
+                    ]),
                 Forms\Components\FileUpload::make('image')
                     ->image()
                     ->required(),

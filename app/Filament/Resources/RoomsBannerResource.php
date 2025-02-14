@@ -19,7 +19,9 @@ class RoomsBannerResource extends Resource
 
     protected static ?string $modelLabel = "Quartos Banners";
 
-    protected static ?string $navigationGroup = "Quartos";
+    protected static ?string $navigationGroup = "Nossos Quartos";
+
+    protected static ?int $navigationSort = -8;
 
     protected static ?string $navigationIcon = 'heroicon-o-window';
 
@@ -79,6 +81,6 @@ class RoomsBannerResource extends Resource
 
     public static function canCreate(): bool
     {
-        return false; // Disables the "Create" button
+        return true; // Disables the "Create" button
     }
 }

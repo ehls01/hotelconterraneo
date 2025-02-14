@@ -21,6 +21,8 @@ class HomeBannerResource extends Resource
 
     protected static ?string $navigationGroup = "Página incial";
 
+    protected static ?int $navigationSort = -10;
+
     protected static ?string $navigationIcon = 'heroicon-o-window';
 
     public static function form(Form $form): Form

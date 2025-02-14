@@ -29,11 +29,13 @@ class LeisureCarouselResource extends Resource
             ->schema([
                 Forms\Components\FileUpload::make('image')
                     ->image()
+                    ->multiple()
                     ->required(),
                 Forms\Components\TextInput::make('title')
                     ->required(),
                 Forms\Components\TextInput::make('text')
-                    ->required(),
+                    ->required()
+                    ->words(8),
             ]);
     }
 

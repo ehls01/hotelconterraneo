@@ -20,6 +20,8 @@ class HomeCardResource extends Resource
     protected static ?string $modelLabel = "Home Cards";
 
     protected static ?string $navigationGroup = "Página incial";
+    
+    protected static ?int $navigationSort = -10;
 
     protected static ?string $navigationIcon = 'heroicon-o-view-columns';
 

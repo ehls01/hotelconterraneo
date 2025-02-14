@@ -12,6 +12,7 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Filament\Forms\Components\RichEditor;
 
 class RoomsCardResource extends Resource
 {
@@ -19,7 +20,9 @@ class RoomsCardResource extends Resource
 
     protected static ?string $modelLabel = "Quartos Cards";
 
-    protected static ?string $navigationGroup = "Quartos";
+    protected static ?string $navigationGroup = "Nossos Quartos";
+
+    protected static ?int $navigationSort = -8;
 
     protected static ?string $navigationIcon = 'heroicon-o-view-columns';
 
@@ -29,8 +32,14 @@ class RoomsCardResource extends Resource
             ->schema([
                 Forms\Components\TextInput::make('title')
                     ->required(),
-                Forms\Components\TextInput::make('text')
-                    ->required(),
+                Forms\Components\RichEditor::make('text')
+                    ->required()
+                    ->words(4)
+                    ->disableToolbarButtons([
+                        'attachFiles',
+                        'strike',
+                        'underline'
+                    ]),
                 Forms\Components\TextInput::make('price')
                     ->required()
                     ->numeric()

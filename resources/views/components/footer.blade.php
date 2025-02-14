@@ -1,3 +1,18 @@
+<style>
+.map-container iframe {
+    width: 100%;
+    max-width: 1500px; /* Mantém o tamanho máximo para telas grandes */
+    height: 400px; /* Altura padrão */
+}
+
+@media (max-width: 768px) { 
+    .map-container iframe {
+        height: 300px; /* Reduz a altura para dispositivos móveis */
+    }
+}
+
+</style>
+
 <footer class="container mx-auto bg-white py-8 border-t border-gray-400">
     <div class="container mx-auto px-4 py-8">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -26,9 +41,10 @@
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
             <div class="flex flex-col items-center md:flex-row md:justify-between">
-                <div class="text-center md:text-left">
-                    <img src="../imgs/hotelLogo.png" alt="logo do hotel" class="w-16 h-16">
+                <div id="map-container" class="map-container mb-4" style="display: none;">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3973.49643337478!2d-37.36993402424627!3d-5.184351252312855!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7ba06bddcec37d5%3A0xe62a09807e7437fb!2sHotel%20Conterr%C3%A2neo!5e0!3m2!1spt-BR!2sbr!4v1730399575404!5m2!1spt-BR!2sbr" width="1500" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
+                <button id="close-map-btn" class="mt-2 bg-red-500 text-white py-2 px-4" style="display: none;">Fechar Mapa</button>
 
                 <div class="text-center md:text-left mt-4 md:mt-0">
                     <div id="map-container" class="map-container mb-4" style="display: none;">
@@ -54,13 +70,16 @@
         <script>
             document.getElementById("show-map-btn").onclick = function() {
                 document.getElementById("map-container").style.display = "block";
-                this.style.display = "none"; // Esconder o botão após o clique
+                document.getElementById("close-map-btn").style.display = "inline-block"; // Exibe o botão Fechar
+                this.style.display = "none"; // Esconde o botão Ver Mapa
             };
 
             document.getElementById("close-map-btn").onclick = function() {
                 document.getElementById("map-container").style.display = "none";
-                document.getElementById("show-map-btn").style.display = "block"; // Mostrar o botão novamente
+                this.style.display = "none"; // Esconde o botão Fechar
+                document.getElementById("show-map-btn").style.display = "inline-block"; // Exibe o botão Ver Mapa
             };
+
         </script>
 
         <div class="border-t border-gray-300 mt-16 pt-4 text-center md:text-left">

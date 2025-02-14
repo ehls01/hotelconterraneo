@@ -12,10 +12,10 @@
 
 <body>
     
-<x-navbar />
+<x-navbar/>
 
 <div class="bg-cover pt-4 bg-center h-screen bg-[url({{asset('storage/'.$home_banners[0]->image)}})]">
-    <div class="flex items-center justify-center h-full bg-black bg-opacity-50">s
+    <div class="flex items-center justify-center h-full bg-black bg-opacity-50">
         <div class="text-center text-white">
             <h1 class="text-5xl font-bold mb-4"> {{$home_banners[0]->title}}</h1>
             <p class="text-lg mb-8"> {{$home_banners[0]->text}}</p>
@@ -31,6 +31,7 @@
         </div>
     </div>
 </div>
+
 
 <div id="reservas" class="my-8"></div>
 

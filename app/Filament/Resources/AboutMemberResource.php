@@ -19,7 +19,9 @@ class AboutMemberResource extends Resource
 
     protected static ?string $modelLabel = "Sobre Membros";
 
-    protected static ?string $navigationGroup = "Sobre";
+    protected static ?string $navigationGroup = "Sobre Nós";
+
+    protected static ?int $navigationSort = -9;
 
     protected static ?string $navigationIcon = 'heroicon-o-user-group';
 
@@ -45,15 +47,16 @@ class AboutMemberResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\ImageColumn::make('image'),
+                Tables\Columns\ImageColumn::make('image')->disk('public'),
                 Tables\Columns\TextColumn::make('name')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('position')
-                    ->searchable(),
+                    ->searchable()
+                    ->words(2),
                 Tables\Columns\TextColumn::make('text')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('instagram')
-                    ->searchable(),
+                    ->searchable()
+                    ->words(6),
+
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

@@ -11,6 +11,8 @@ class CoffeeCarousel extends Model
 
     protected $table = 'coffee_carousels';
 
+    protected $casts = ['image'=>'array'];
+
     protected $fillable = [
         'image'
     ];
