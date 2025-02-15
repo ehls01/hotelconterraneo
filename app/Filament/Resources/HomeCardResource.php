@@ -20,6 +20,8 @@ class HomeCardResource extends Resource
     protected static ?string $modelLabel = "Home Cards";
 
     protected static ?string $navigationGroup = "Página incial";
+
+    protected static ?string $navigationLabel = 'Comodidades';
     
     protected static ?int $navigationSort = -10;
 
@@ -44,14 +46,6 @@ class HomeCardResource extends Resource
                 Tables\Columns\ImageColumn::make('image'),
                 Tables\Columns\TextColumn::make('title')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('created_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('updated_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
                 //

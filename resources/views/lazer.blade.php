@@ -86,8 +86,8 @@
     </div>
 
     <div id="explorar" class="container mx-auto text-center py-12">
-        <h1 class="text-4xl font-bold mb-4">Galeria de Imagens</h1>
-        <p class="text-lg text-gray-600 mb-8">Descubra o melhor do nosso hotel em fotos.</p>
+        <h1 class="text-4xl font-bold mb-4">Principais comodidades do nosso hotel!</h1>
+        <!-- <p class="text-lg text-gray-600 mb-8">Descubra o melhor do nosso hotel em fotos.</p> -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             
             @foreach ($home_cards as $HomeCard)

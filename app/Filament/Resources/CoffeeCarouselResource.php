@@ -19,6 +19,8 @@ class CoffeeCarouselResource extends Resource
 
     protected static ?string $modelLabel = "Café Carrosséis";
 
+    protected static ?string $navigationLabel = 'Banner principal';
+
     protected static ?string $navigationGroup = "Café da Manhã";
 
     protected static ?string $navigationIcon = 'tabler-mug';
@@ -39,27 +41,19 @@ class CoffeeCarouselResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\ImageColumn::make('image'),
-                Tables\Columns\TextColumn::make('created_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('updated_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
                 //
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
-                Tables\Actions\DeleteAction::make(),
-            ])
-            ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
-                ]),
+                // Tables\Actions\DeleteAction::make(),
             ]);
+            // ->bulkActions([
+            //     Tables\Actions\BulkActionGroup::make([
+            //         Tables\Actions\DeleteBulkAction::make(),
+            //     ]),
+            // ]);
     }
 
     public static function getPages(): array
@@ -67,5 +61,10 @@ class CoffeeCarouselResource extends Resource
         return [
             'index' => Pages\ManageCoffeeCarousels::route('/'),
         ];
+    }
+
+    public static function canCreate(): bool
+    {
+        return false; // Disables the "Create" button
     }
 }

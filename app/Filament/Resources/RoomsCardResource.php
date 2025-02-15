@@ -20,6 +20,8 @@ class RoomsCardResource extends Resource
 
     protected static ?string $modelLabel = "Quartos Cards";
 
+    protected static ?string $navigationLabel = 'Categoria dos quartos';
+
     protected static ?string $navigationGroup = "Nossos Quartos";
 
     protected static ?int $navigationSort = -8;
@@ -34,7 +36,6 @@ class RoomsCardResource extends Resource
                     ->required(),
                 Forms\Components\RichEditor::make('text')
                     ->required()
-                    ->words(4)
                     ->disableToolbarButtons([
                         'attachFiles',
                         'strike',
@@ -44,8 +45,6 @@ class RoomsCardResource extends Resource
                     ->required()
                     ->numeric()
                     ->prefix('$'),
-                Forms\Components\TextInput::make('type')
-                    ->required(),
             ]);
     }
 
@@ -56,20 +55,12 @@ class RoomsCardResource extends Resource
                 Tables\Columns\TextColumn::make('title')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('text')
-                    ->searchable(),
+                    ->searchable()
+                    ->limit(50)
+                    ->html(),
                 Tables\Columns\TextColumn::make('price')
                     ->money()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('type')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('created_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('updated_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
                 //

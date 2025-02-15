@@ -12,7 +12,7 @@ class RoomsCard extends Model
     protected $table = 'rooms_cards';
 
     protected $fillable = [
-        'title', 'text', 'price', 'type'
+        'title', 'text', 'price'
     ];
 
     public function roomImages()

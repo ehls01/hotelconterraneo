@@ -19,6 +19,8 @@ class AboutMemberResource extends Resource
 
     protected static ?string $modelLabel = "Sobre Membros";
 
+    protected static ?string $navigationLabel = 'Funcionários';
+
     protected static ?string $navigationGroup = "Sobre Nós";
 
     protected static ?int $navigationSort = -9;
@@ -38,8 +40,7 @@ class AboutMemberResource extends Resource
                     ->required(),
                 Forms\Components\TextInput::make('text')
                     ->required(),
-                Forms\Components\TextInput::make('instagram')
-                    ->required(),
+                Forms\Components\TextInput::make('instagram'),
             ]);
     }
 
@@ -56,15 +57,6 @@ class AboutMemberResource extends Resource
                 Tables\Columns\TextColumn::make('text')
                     ->searchable()
                     ->words(6),
-
-                Tables\Columns\TextColumn::make('created_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('updated_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
                 //

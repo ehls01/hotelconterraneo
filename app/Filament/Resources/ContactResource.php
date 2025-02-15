@@ -40,7 +40,7 @@ class ContactResource extends Resource
                     ->required(),
                 Forms\Components\TextInput::make('linkedin')
                     ->required(),
-                Forms\Components\TextInput::make('youtube')
+                Forms\Components\TextInput::make('wbusiness')
                     ->required(),
             ]);
     }
@@ -50,42 +50,27 @@ class ContactResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('email')
-                    ->searchable(),
+                    ->limit(50),
                 Tables\Columns\TextColumn::make('address')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('facebook')
-                    ->searchable(),
+                    ->limit(80),
                 Tables\Columns\TextColumn::make('number')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('map')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('instagram')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('linkedin')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('youtube')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('created_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('updated_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
+                    ->limit(50),
             ])
             ->filters([
                 //
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
-                Tables\Actions\DeleteAction::make(),
+                // Tables\Actions\DeleteAction::make(),
+            
             ])
-            ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
-                ]),
-            ]);
+            ->paginated(false);
+
+            // ->bulkActions([
+            //     Tables\Actions\BulkActionGroup::make([
+            //         Tables\Actions\DeleteBulkAction::make(),
+            //     ]),
+            // ]);
     }
 
     public static function getPages(): array
@@ -93,5 +78,10 @@ class ContactResource extends Resource
         return [
             'index' => Pages\ManageContacts::route('/'),
         ];
+    }
+
+    public static function canCreate(): bool
+    {
+        return false; // Disables the "Create" button
     }
 }

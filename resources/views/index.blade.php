@@ -24,7 +24,7 @@
                 <a>
                     <button class="border border-white text-white px-6 py-2 rounded" onclick="scrollToSection('reservas')"> Explorar </button>
                 </a>
-                <a href="https://wa.me/5584991166551" target="_blank">
+                <a href="https://wa.me/{{$contacts->wbusiness}}" target="_blank">
                     <button class="border border-white text-white px-6 py-2 rounded">Reservar</button>
                 </a>
             </div>
@@ -45,8 +45,8 @@ function scrollToSection(id) {
 </script>
 
 <div id="explorar" class="container mx-auto text-center py-12">
-    <h1 class="text-4xl font-bold mb-4">Galeria de Imagens</h1>
-    <p class="text-lg text-gray-600 mb-8">Descubra o melhor do nosso hotel em fotos.</p>
+    <h1 class="text-4xl font-bold mb-4">Principais comodidades do nosso hotel!</h1>
+    <!-- <p class="text-lg text-gray-600 mb-8">Descubra o melhor do nosso hotel em fotos.</p> -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
         
         @foreach ($home_cards as $HomeCard)

@@ -20,21 +20,21 @@
                 <i class="fas fa-envelope text-4xl mb-4"></i>
                 <h2 class="text-2xl font-bold mb-2">Email</h2>
                 <p class="mb-2">Entre em contato conosco para mais informações ou para fazer sua reserva.</p>
-                <p class="text-black-500">hotelconterraneo-mossoro@hotmail.com</p>
+                <p class="text-black-500">{{$contacts->email}}</p>
             </div>
 
             <div class="text-center md:text-left">
                 <i class="fas fa-phone text-4xl mb-4"></i>
                 <h2 class="text-2xl font-bold mb-2">Contato</h2>
                 <p class="mb-2">Estamos disponíveis para atender suas dúvidas e reservas.</p>
-                <p class="text-black-500">+55 (84) 99116-6551 - +55 (84) 3318-1691</p>
+                <p class="text-black-500">{{$contacts->number}}</p>
             </div>
             
             <div class="text-center md:text-left">
                 <i class="fas fa-map-marker-alt text-4xl mb-4"></i>
                 <h2 class="text-2xl font-bold mb-2">Endereço</h2>
                 <p class="mb-2">Visite-nos ou entre em contato para mais informações.</p>
-                <p class="text-black-500">Rua Gilberto Marcelino Sobrinho, 62 - Nova Betânia, 5907-450</p>
+                <p class="text-black-500">{{$contacts->address}}</p>
                 <button id="show-map-btn" class="mt-2 bg-yellow-400 text-black py-2 px-4">Ver Mapa</button>
             </div>
         </div>

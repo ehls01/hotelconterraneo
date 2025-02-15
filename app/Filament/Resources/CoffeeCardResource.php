@@ -22,6 +22,8 @@ class CoffeeCardResource extends Resource
 
     protected static ?string $navigationGroup = "Café da Manhã";
 
+    protected static ?string $navigationLabel = 'Postagens';
+
     protected static ?string $navigationIcon = 'tabler-mug';
 
     public static function form(Form $form): Form
@@ -53,14 +55,6 @@ class CoffeeCardResource extends Resource
                 Tables\Columns\TextColumn::make('text')
                     ->words(12),
                 Tables\Columns\ImageColumn::make('image'),
-                Tables\Columns\TextColumn::make('created_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('updated_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
                 //

@@ -19,6 +19,8 @@ class LeisureCarouselResource extends Resource
 
     protected static ?string $modelLabel = "Lazer Carroséis";
 
+    protected static ?string $navigationLabel = 'Banner principal';
+
     protected static ?string $navigationGroup = "Lazer";
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
@@ -34,8 +36,6 @@ class LeisureCarouselResource extends Resource
                 Forms\Components\TextInput::make('title')
                     ->required(),
                 Forms\Components\TextInput::make('text')
-                    ->required()
-                    ->words(8),
             ]);
     }
 
@@ -47,15 +47,8 @@ class LeisureCarouselResource extends Resource
                 Tables\Columns\TextColumn::make('title')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('text')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('created_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('updated_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
+                    ->searchable()
+                    ->limit(80),
             ])
             ->filters([
                 //
@@ -63,12 +56,12 @@ class LeisureCarouselResource extends Resource
             ->actions([
                 Tables\Actions\EditAction::make(),
                 Tables\Actions\DeleteAction::make(),
-            ])
-            ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
-                ]),
             ]);
+            // ->bulkActions([
+            //     Tables\Actions\BulkActionGroup::make([
+            //         Tables\Actions\DeleteBulkAction::make(),
+            //     ]),
+            // ]);
     }
 
     public static function getPages(): array
@@ -76,5 +69,10 @@ class LeisureCarouselResource extends Resource
         return [
             'index' => Pages\ManageLeisureCarousels::route('/'),
         ];
+    }
+
+    public static function canCreate(): bool
+    {
+        return true; // Disables the "Create" button
     }
 }

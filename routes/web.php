@@ -21,22 +21,23 @@ use App\Http\Controllers\QuartosController;
 
 Route::get('/', function () {
     $home_banners = HomeBanner::first()->get();
-    $home_cards = HomeCard::limit(8)->get();
+    $home_cards = HomeCard::all();
     return view('index',compact('home_banners','home_cards'));
 });
 
 Route::get('sobre', function () {
     $about_banners = AboutBanner::first();
-    $about_members = AboutMember::limit(6)->get();
+    $about_members = AboutMember::all();
     return view('sobre',compact('about_banners','about_members'));
     
 });
 
 Route::get('quartos', function () {
     $rooms_banners = RoomsBanner::first();
-    $rooms_cards = RoomsCard::limit(5)->get();
-    $rooms_images = RoomsImage::limit(3)->get();
-    return view('quartos',compact('rooms_banners', 'rooms_cards', 'rooms_images'));
+    $rooms_cards = RoomsCard::with('roomImages')->get();
+    // dd($rooms_cards[0]->roomImages);
+    // $rooms_images = RoomsImage::limit(3)->get();
+    return view('quartos',compact('rooms_banners', 'rooms_cards'));
 });
 
 Route::get('cafe', function () {
@@ -47,7 +48,7 @@ Route::get('cafe', function () {
 });
 
 Route::get('lazer', function () {
-    $leisure_carousels = LeisureCarousel::limit(3)->get();
-    $home_cards = HomeCard::limit(8)->get();
+    $leisure_carousels = LeisureCarousel::all();
+    $home_cards = HomeCard::all();
     return view('lazer',compact('leisure_carousels', 'home_cards'));
 });

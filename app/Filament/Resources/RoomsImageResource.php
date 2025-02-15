@@ -20,6 +20,8 @@ class RoomsImageResource extends Resource
 
     protected static ?string $modelLabel = "Quartos Imagens";
 
+    protected static ?string $navigationLabel = 'Imagens dos quartos';
+
     protected static ?string $navigationGroup = "Nossos Quartos";
 
     protected static ?int $navigationSort = -8;
@@ -48,14 +50,6 @@ class RoomsImageResource extends Resource
                 Tables\Columns\TextColumn::make('roomCard.title')
                     ->searchable()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('created_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('updated_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
                 //

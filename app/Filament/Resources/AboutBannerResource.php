@@ -19,6 +19,8 @@ class AboutBannerResource extends Resource
 
     protected static ?string $modelLabel = "Sobre Banner";
 
+    protected static ?string $navigationLabel = 'Banner principal';
+
     protected static ?string $navigationGroup = "Sobre Nós";
 
     protected static ?int $navigationSort = -9;
@@ -49,27 +51,19 @@ class AboutBannerResource extends Resource
                 Tables\Columns\TextColumn::make('title'),
                 Tables\Columns\TextColumn::make('text')
                     ->words(12),
-                Tables\Columns\TextColumn::make('created_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('updated_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
                 //
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
-                Tables\Actions\DeleteAction::make(),
-            ])
-            ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
-                ]),
+                // Tables\Actions\DeleteAction::make(),
             ]);
+            // ->bulkActions([
+            //     Tables\Actions\BulkActionGroup::make([
+            //         Tables\Actions\DeleteBulkAction::make(),
+            //     ]),
+            // ]);
     }
 
     public static function getPages(): array
@@ -81,7 +75,7 @@ class AboutBannerResource extends Resource
 
     public static function canCreate(): bool
     {
-        return true; // Disables the "Create" button
+        return false; // Disables the "Create" button
     }
 
 }

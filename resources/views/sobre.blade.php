@@ -73,9 +73,11 @@ function scrollToSection(id) {
           <p class="text-gray-500">{{$AboutMember->position}}</p>
           <p class="text-gray-600 mt-2">{{$AboutMember->text}}</p>
           <div class="flex justify-center space-x-4 mt-4">
+            @if (isset($AboutMember->instagram))
             <a class="text-gray-500 hover:text-gray-900" href="{{$AboutMember->instagram}}">
               <i class="fab fa-instagram"></i>
             </a>
+            @endif
           </div>
         </div>
         @endforeach

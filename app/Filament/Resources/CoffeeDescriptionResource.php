@@ -19,6 +19,8 @@ class CoffeeDescriptionResource extends Resource
 
     protected static ?string $modelLabel = "Café Descrições";
 
+    protected static ?string $navigationLabel = 'Descrição do banner';
+
     protected static ?string $navigationGroup = "Café da Manhã";
 
     protected static ?string $navigationIcon = 'tabler-mug';
@@ -43,14 +45,6 @@ class CoffeeDescriptionResource extends Resource
                 Tables\Columns\TextColumn::make('title'),
                 Tables\Columns\TextColumn::make('text')
                     ->words(12),
-                Tables\Columns\TextColumn::make('created_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('updated_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
                 //
