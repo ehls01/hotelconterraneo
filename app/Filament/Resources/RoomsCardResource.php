@@ -34,17 +34,18 @@ class RoomsCardResource extends Resource
             ->schema([
                 Forms\Components\TextInput::make('title')
                     ->required(),
+                Forms\Components\TextInput::make('price')
+                    ->required()
+                    ->numeric()
+                    ->prefix('$'),
                 Forms\Components\RichEditor::make('text')
                     ->required()
+                    ->columnSpan(2)
                     ->disableToolbarButtons([
                         'attachFiles',
                         'strike',
                         'underline'
                     ]),
-                Forms\Components\TextInput::make('price')
-                    ->required()
-                    ->numeric()
-                    ->prefix('$'),
             ]);
     }
 
@@ -54,13 +55,13 @@ class RoomsCardResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('title')
                     ->searchable(),
+                Tables\Columns\TextColumn::make('price')
+                    ->money()
+                    ->sortable(),
                 Tables\Columns\TextColumn::make('text')
                     ->searchable()
                     ->limit(50)
                     ->html(),
-                Tables\Columns\TextColumn::make('price')
-                    ->money()
-                    ->sortable(),
             ])
             ->filters([
                 //

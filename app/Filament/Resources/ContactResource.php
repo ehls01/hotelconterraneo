@@ -30,18 +30,19 @@ class ContactResource extends Resource
                     ->required(),
                 Forms\Components\TextInput::make('address')
                     ->required(),
-                Forms\Components\TextInput::make('facebook')
-                    ->required(),
                 Forms\Components\TextInput::make('number')
+                    ->required(),
+                Forms\Components\TextInput::make('wbusiness')
                     ->required(),
                 Forms\Components\TextInput::make('map')
                     ->required(),
                 Forms\Components\TextInput::make('instagram')
                     ->required(),
+                Forms\Components\TextInput::make('facebook')
+                    ->required(),
                 Forms\Components\TextInput::make('linkedin')
                     ->required(),
-                Forms\Components\TextInput::make('wbusiness')
-                    ->required(),
+
             ]);
     }
 

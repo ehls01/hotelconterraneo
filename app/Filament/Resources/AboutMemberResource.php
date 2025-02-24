@@ -31,9 +31,6 @@ class AboutMemberResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\FileUpload::make('image')
-                    ->image()
-                    ->required(),
                 Forms\Components\TextInput::make('name')
                     ->required(),
                 Forms\Components\TextInput::make('position')
@@ -41,6 +38,9 @@ class AboutMemberResource extends Resource
                 Forms\Components\TextInput::make('text')
                     ->required(),
                 Forms\Components\TextInput::make('instagram'),
+                Forms\Components\FileUpload::make('image')
+                    ->image()
+                    ->required(),
             ]);
     }
 

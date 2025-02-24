@@ -30,7 +30,7 @@
                 <a>
                     <button class="px-4 py-2 border border-gray-900 text-gray-900 hover:bg-gray-100" onclick="scrollToSection('reservas')">Saiba mais</button>
                 </a>
-                <a href="https://wa.me/5584991166551" target="_blank" rel="noopener noreferrer">
+                <a href="https://wa.me/{{$contacts->wbusiness}}?text=Ol%C3%A1,%20gostaria%20de%20reservar%20um%20quarto%20individual%20no%20Hotel%20Conterr%C3%A2neo.%20Podem%20me%20passar%20os%20detalhes%20de%20disponibilidade%20e%20tarifa%3F" target="_blank">
                     <button class="px-4 py-2 border border-black text-gray-900">Reservar agora</button>
                 </a>
             </div>
@@ -81,8 +81,7 @@ function scrollToSection(id) {
           </div>
         </div>
         @endforeach
-
-        
+  
         </div>
       </div>
     </section>
@@ -92,4 +91,3 @@ function scrollToSection(id) {
 
 @livewireScripts
 </body>
-

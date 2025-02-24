@@ -44,7 +44,8 @@ class CoffeeDescriptionResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('title'),
                 Tables\Columns\TextColumn::make('text')
-                    ->words(12),
+                    ->words(12)
+                    ->columnSpan(2),
             ])
             ->filters([
                 //

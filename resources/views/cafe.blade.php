@@ -14,14 +14,14 @@
 <x-navbar/>
 
 <!-- Carousel Section -->
-<div class="bg-gray-300 h-[70vh] pt-4 flex items-center justify-center overflow-hidden">
+<div class="bg-gray-300 h-[70vh] pt-4 flex items-center justify-center overflow-hidden relative" id="carousel-container">
   <!-- Carousel Wrapper -->
   <div class="flex transition-transform duration-500 ease-in-out h-full" id="carousel">
     <!-- Slides -->
     @foreach ($coffee_carousels as $CoffeeCarousel)
     @foreach ($CoffeeCarousel->image as $image)
     <div class="flex-shrink-0 w-full">
-      <img
+      <img 
         alt="Placeholder image" 
         class="h-full w-full object-cover" 
         src="{{ asset('storage/'.$image) }}"/>
@@ -29,9 +29,19 @@
     @endforeach
     @endforeach
   </div>
+
+  <!-- Prev Button -->
+  <button id="prev" class="absolute top-1/2 left-4 transform -translate-y-1/2 bg-black text-white p-2 rounded-full shadow-lg z-10">
+    &#10094;
+  </button>
+
+  <!-- Next Button -->
+  <button id="next" class="absolute top-1/2 right-4 transform -translate-y-1/2 bg-black text-white p-2 rounded-full shadow-lg z-10">
+    &#10095;
+  </button>
 </div>
 
-<!-- JavaScript for automatic slide change -->
+<!-- JavaScript for manual slide change -->
 <script>
   let currentIndex = 0;
   const slides = document.querySelectorAll('#carousel > div');
@@ -41,8 +51,17 @@
     document.getElementById('carousel').style.transform = `translateX(-${index * slides[0].offsetWidth}px)`;
   };
 
-  setInterval(() => showSlide((currentIndex = (currentIndex + 1) % totalSlides)), 5000);
+  document.getElementById('next').addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % totalSlides;
+    showSlide(currentIndex);
+  });
+
+  document.getElementById('prev').addEventListener('click', () => {
+    currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+    showSlide(currentIndex);
+  });
 </script>
+
 
 
 <!-- POSTS -->
@@ -57,7 +76,7 @@
       {{$coffee_descriptions[0]->text}}
     </p>
     <div class="mt-4 flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 justify-center sm:justify-start">
-      <a href="https://wa.me/5584991166551?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20o%20menu." target="_blank">
+      <a href="https://wa.me/{{$contacts->wbusiness}}?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20o%20menu%20do%20Hotel%20Conterrâneo.%20Podem%20me%20passar%20detalhes%20sobre%20as%20opções%20de%20pratos?" target="_blank">
         <button class="border border-black text-black py-2 px-4 w-full sm:w-auto">Reservar Agora</button>
       </a>
 

@@ -78,7 +78,7 @@
                 Descubra as opções de lazer e atividades oferecidas pelo Hotel Conterrâneo. Aproveite a piscina, relaxe na área verde e traga seu pet para desfrutar de momentos especiais.
             </p>
             <div class="mt-4 flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 justify-center sm:justify-start">
-                <a href="https://wa.me/5584991166551?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20menu." target="_blank">
+            <a href="https://wa.me/{{$contacts->wbusiness}}?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20informa%C3%A7%C3%B5es%20sobre%20o%20Hotel%20Conterr%C3%A2neo.%20Podem%20me%20passar%20os%20detalhes%3F" target="_blank">
                     <button class="border border-black text-black py-2 px-4 w-full sm:w-auto">Reservar Agora</button>
                 </a>
             </div>
@@ -86,7 +86,7 @@
     </div>
 
     <div id="explorar" class="container mx-auto text-center py-12">
-        <h1 class="text-4xl font-bold mb-4">Principais comodidades do nosso hotel!</h1>
+        <h1 class="text-4xl font-bold mb-4">Principais comodidades do nosso hotel!</h1><br>
         <!-- <p class="text-lg text-gray-600 mb-8">Descubra o melhor do nosso hotel em fotos.</p> -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             

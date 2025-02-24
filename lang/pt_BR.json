@@ -168,6 +168,7 @@
   "Map": "Mapa",
   "Price": "Preço",
   "Type": "Tipo",
-  "Romms card id": "Quartos Card ID"
-
+  "Romms card id": "Quartos Card ID",
+  "Room card": "Categoria do quarto",
+  "Address":"Endereço"
 }

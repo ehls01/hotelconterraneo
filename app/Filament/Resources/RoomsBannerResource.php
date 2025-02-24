@@ -36,8 +36,9 @@ class RoomsBannerResource extends Resource
                     ->required(),
                 Forms\Components\TextInput::make('title')
                     ->required(),
-                Forms\Components\TextInput::make('text')
-                    ->required(),
+                Forms\Components\RichEditor::make('text')
+                    ->required()
+                    ->columnSpan(2),
             ]);
     }
 
@@ -50,7 +51,8 @@ class RoomsBannerResource extends Resource
                 Tables\Columns\ImageColumn::make('image'),
                 Tables\Columns\TextColumn::make('title'),
                 Tables\Columns\TextColumn::make('text')
-                    ->words(12),
+                    ->words(12)
+                    ->html(),
             ])
             ->filters([
                 //

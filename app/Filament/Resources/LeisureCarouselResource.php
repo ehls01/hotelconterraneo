@@ -31,11 +31,11 @@ class LeisureCarouselResource extends Resource
             ->schema([
                 Forms\Components\FileUpload::make('image')
                     ->image()
-                    ->multiple()
                     ->required(),
                 Forms\Components\TextInput::make('title')
                     ->required(),
-                Forms\Components\TextInput::make('text')
+                Forms\Components\RichEditor::make('text')
+                    ->columnSpan(2)
             ]);
     }
 
@@ -48,6 +48,7 @@ class LeisureCarouselResource extends Resource
                     ->searchable(),
                 Tables\Columns\TextColumn::make('text')
                     ->searchable()
+                    ->html()
                     ->limit(80),
             ])
             ->filters([

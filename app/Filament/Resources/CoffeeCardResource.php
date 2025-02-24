@@ -30,18 +30,19 @@ class CoffeeCardResource extends Resource
     {
         return $form
             ->schema([
+                Forms\Components\FileUpload::make('image')
+                ->image()
+                ->required(),
                 Forms\Components\TextInput::make('title')
                     ->required(),
                 Forms\Components\RichEditor::make('text')
                     ->required()
+                    ->columnSpan(2)
                     ->disableToolbarButtons([
                         'attachFiles',
                         'strike',
                         'underline'
                     ]),
-                Forms\Components\FileUpload::make('image')
-                    ->image()
-                    ->required(),
             ]);
     }
 
@@ -51,10 +52,11 @@ class CoffeeCardResource extends Resource
             ->paginated(false)
 
             ->columns([
+                Tables\Columns\ImageColumn::make('image'),
                 Tables\Columns\TextColumn::make('title'),
                 Tables\Columns\TextColumn::make('text')
-                    ->words(12),
-                Tables\Columns\ImageColumn::make('image'),
+                    ->words(12)
+                    ->html(),
             ])
             ->filters([
                 //
