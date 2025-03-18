@@ -1,144 +1,94 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lazer - Hotel Conterrâneo</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css?family=Work+Sans:200,400&display=swap" rel="stylesheet">
-    <link rel="icon" href="imgs/hotelLogo.png" sizes="48x48" type="image/x-icon">
-</head>
-<body>
+<x-layout>
 
-<x-navbar />
-
-<div class="bg-gray-300 h-[70vh] flex items-center justify-center overflow-hidden"> <!-- Ajuste de altura -->
-  <img 
-    alt="Placeholder image" 
-    class="h-full w-full object-cover" 
-    src="https://www.serhsnatalgrandhotel.com/content/imgsxml/galerias/panel_gallery/1/serhsnatalgh17.5247b546.jpg" 
-  />
-</div>
-
-<!---- <div class="flex flex-col md:flex-row justify-between items-start mt-8 px-40"> -->
-
-<div class="bg-white text-gray-900 ">
-  <div class="container mx-auto p-8">
-    <h1 class="text-4xl font-bold mb-4">
-      Desfrute de nossa incrível piscina com todas as comodidades que você precisa
-    </h1>
-    <div class="flex flex-row gap-8">
-      <div>
-        <p class="text-lg">
-          Nossa piscina é perfeita para relaxar e se refrescar em um ambiente tranquilo e agradável.
-        </p>
-      </div>
-      <div class="flex flex-row gap-8">
-        <div class="flex items-start">
-          <i class="fas fa-cube text-2xl mr-4"></i>
-          <div>
-            <h2 class="text-xl font-semibold">
-              Comodidades
-            </h2>
-            <p>
-              Toalhas e espreguiçadeiras para tornar sua experiência de lazer ainda mais satisfatória.
-            </p>
-          </div>
-        </div>
-        <div class="flex items-start">
-          <i class="fas fa-cube text-2xl mr-4"></i>
-          <div>
-            <h2 class="text-xl font-semibold">
-              Horários
-            </h2>
-            <p>
-              A piscina está disponível das 08:00h às 20:00h para todos os hóspedes.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<div>
-    <div class="bg-white text-gray-900">
-        <div class="container mx-auto p-8">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <h1 class="text-4xl font-bold mb-4">
-                    Lazer e Atividades
-                </h1>
-                <div>
-                    <p class="text-lg">
-                        Descubra as opções de lazer e atividades oferecidas pelo Hotel Conterrâneo.
-                        Aproveite a piscina, relaxe na área verde e traga seu pet para desfrutar de
-                        momentos especiais.
+    <!-- Carousel Section -->
+    <div class="h-[70vh] pt-4 overflow-hidden relative" id="carousel-container">
+        <!-- Carousel Wrapper -->
+        <div class="flex transition-transform duration-500 ease-in-out h-full" id="carousel">
+            @foreach ($leisure_carousels as $LeisureCarousel)
+            <!-- Slide -->
+            <div class="flex-shrink-0 w-full flex relative h-full">
+                @foreach ($LeisureCarousel->image as $image)
+                <img 
+                    alt="Piscina" 
+                    class="h-full w-full object-cover" 
+                    src="{{asset('storage/'.$LeisureCarousel->image[0])}}"/>
+                @endforeach
+                <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 p-8 md:p-12">
+                    <p class="text-2xl md:text-3xl font-semibold text-white text-center max-w-[80%] md:max-w-[70%]">
+                        {{$LeisureCarousel->text}}
                     </p>
                 </div>
+
+            </div>
+            @endforeach
+        </div>
+
+        <!-- Prev Button -->
+        <button id="prev" class="absolute top-1/2 left-4 transform -translate-y-1/2 bg-black text-white p-2 rounded-full shadow-lg z-10">
+            &#10094;
+        </button>
+
+        <!-- Next Button -->
+        <button id="next" class="absolute top-1/2 right-4 transform -translate-y-1/2 bg-black text-white p-2 rounded-full shadow-lg z-10">
+            &#10095;
+        </button>
+    </div>
+
+    <!-- JavaScript for manual slide change -->
+    <script>
+        let currentIndex = 0;
+        const slides = document.querySelectorAll('#carousel > div');
+        const totalSlides = slides.length;
+
+        const showSlide = (index) => {
+            document.getElementById('carousel').style.transform = `translateX(-${index * slides[0].offsetWidth}px)`;
+        };
+
+        document.getElementById('next').addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % totalSlides;
+            showSlide(currentIndex);
+        });
+
+        document.getElementById('prev').addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+            showSlide(currentIndex);
+        });
+    </script>
+
+    <!-- POSTS -->
+    <div class="flex flex-col md:flex-row justify-between items-start mt-8 px-4 md:px-40">
+        <div class="md:w-1/2">
+            <h1 class="text-3xl font-bold text-black text-center md:text-left">Lazer e Atividades</h1>
+        </div>
+        <div class="md:w-1/2 mt-4 md:mt-0">
+            <p class="text-gray-700 text-center md:text-left">
+                Descubra as opções de lazer e atividades oferecidas pelo Hotel Conterrâneo. Aproveite a piscina, relaxe na área verde e traga seu pet para desfrutar de momentos especiais.
+            </p>
+            <div class="mt-4 flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 justify-center sm:justify-start">
+            <a href="https://wa.me/{{$contacts->wbusiness}}?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20informa%C3%A7%C3%B5es%20sobre%20o%20Hotel%20Conterr%C3%A2neo.%20Podem%20me%20passar%20os%20detalhes%3F" target="_blank">
+                    <button class="border border-black text-black py-2 px-4 w-full sm:w-auto">Reservar Agora</button>
+                </a>
             </div>
         </div>
     </div>
-</div>
 
-<div class="flex items-center justify-center min-h-screen bg-white pt-24 md:pt-32">
-  <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
-    <div class="w-full md:w-1/2 mb-4 md:mb-0">
-      <h1 class="text-4xl font-bold mb-4">
-        Desfrute da nossa área verde ao ar livre
-      </h1>
-      <p class="text-lg text-gray-700">
-        Nossa área verde é perfeita para relaxar e aproveitar a natureza. Oferecemos trilhas para caminhadas, quadras esportivas e muito mais.
-      </p>
-    </div>
-    <div class="w-full md:w-1/2 flex justify-center">
-      <img 
-        alt="Placeholder image" 
-        class=" object-contain" 
-        src="https://placehold.co/800x800"
-      />
-    </div>
-  </div>
-</div>
+    <div id="explorar" class="container mx-auto text-center py-12">
+        <h1 class="text-4xl font-bold mb-4">Principais comodidades do nosso hotel!</h1><br>
+        <!-- <p class="text-lg text-gray-600 mb-8">Descubra o melhor do nosso hotel em fotos.</p> -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            
+            @foreach ($home_cards as $HomeCard)
+            <div class="bg-white border border-gray300 overflow-hidden">
+                <img alt="Imagem de um quarto de hotel" class="w-full h-[300px] object-cover"  src="{{asset('storage/'.$HomeCard->image)}}" width="400"/>
+                <div class="p-4">
+                    <h2 class="text-xl font-bold mb-2">{{$HomeCard->title}}</h2>
+                </div>
+            </div>
+            @endforeach
 
-<div class="flex items-center justify-center min-h-screen bg-white pt-24 md:pt-32">
-  <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
-    <div class="w-full md:w-1/2 flex justify-center md:pr-8">
-      <img 
-        alt="Placeholder image" 
-        class="object-contain" 
-        src="https://placehold.co/800x800"
-      />
+        </div>
     </div>
-    <div class="w-full md:w-1/2 mb-4 md:mb-0">
-      <h1 class="text-4xl font-bold mb-4">
-        Aproveite nossa piscina e area de lazer para relaxar!
-      </h1>
-      <p class="text-lg text-gray-700">
-        A piscina é incrível! É o lugar perfeito para relaxar e se refrescar durante sua estadia no Hotel Conterrâneo.
-      </p>
-    </div>
-  </div>
-</div>
 
-<div class="flex items-center justify-center min-h-screen bg-white pt-24 md:pt-32">
-  <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
-    <div class="w-full md:w-1/2 mb-4 md:mb-0">
-      <h1 class="text-4xl font-bold mb-4">
-        Política Pet-Friendly: Seu melhor amigo é bem-vindo em nosso hotel!
-      </h1>
-      <p class="text-lg text-gray-700">
-        No Hotel Conterrâneo, entendemos que seu animal de estimação faz parte da família. Por isso, permitimos que você traga seu pet durante sua estadia.
-      </p>
-    </div>
-    <div class="w-full md:w-1/2 flex justify-center">
-      <img 
-        alt="Placeholder image" 
-        class=" object-contain" 
-        src="https://placehold.co/800x800"
-      />
-    </div>
-  </div>
-</div>
+    <br><br><br>
 
-<x-footer />
+    </x-layout>

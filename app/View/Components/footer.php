@@ -9,7 +9,7 @@ use Illuminate\View\Component;
 class footer extends Component
 {
     /**
-     * Create a new component instance.
+     * Create a new component inrtance.
      */
     public function __construct()
     {
@@ -21,6 +21,7 @@ class footer extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.footer');
+        $this->contacts = Contact::first()->get();
+        return view('components.footer', compact('contacts'));
     }
 }
