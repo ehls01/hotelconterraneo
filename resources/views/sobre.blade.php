@@ -1,18 +1,4 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sobre Nós - Hotel Conterrâneo</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css?family=Work+Sans:200,400&display=swap" rel="stylesheet">
-    <link rel="icon" href="imgs/hotelLogo.png" sizes="48x48" type="image/x-icon">
-    @livewireStyles
-</head>
-
-<body>
-
-<x-navbar />
+<x-layout>
 
 <div class="bg-white text-gray-900">
     <div class="container mx-auto px-4 py-16 flex flex-col md:flex-row items-center">
@@ -87,7 +73,4 @@ function scrollToSection(id) {
     </section>
   <br><br><br><br>
 
-<x-footer />
-
-@livewireScripts
-</body>
+</x-layout>

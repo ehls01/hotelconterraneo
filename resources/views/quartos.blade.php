@@ -1,17 +1,4 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nossos Quartos - Hotel Conterrâneo</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css?family=Work+Sans:200,400&display=swap" rel="stylesheet">
-    <link rel="icon" href="imgs/hotelLogo.png" sizes="48x48" type="image/x-icon">
-    @livewireStyles
-</head>
-<body>
-    
-<x-navbar />
+<x-layout>
 
 <div class="bg-gray-300 h-[70vh] pt-4 flex items-center justify-center overflow-hidden">
   <img 
@@ -112,7 +99,4 @@
     </script>
 <br><br><br><br><br>
 
-<x-footer />
-
-@livewireScripts
-</body>
+</x-layout>

@@ -1,20 +1,5 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hotel Conterrâneo</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css?family=Work+Sans:200,400&display=swap" rel="stylesheet">
-    <link rel="icon" href="imgs/hotelLogo.png" sizes="48x48" type="image/x-icon">
-    @livewireStyles
-</head>
-
-<body>
-    
-<x-navbar/>
-
-<div class="bg-cover pt-4 bg-center h-screen bg-[url({{asset('storage/'.$home_banners[0]->image)}})]">
+<x-layout>
+<div class="bg-cover pt-4 bg-center h-screen" style="background-image:url('{{asset('storage/'.$home_banners[0]->image)}}')">
     <div class="flex items-center justify-center h-full bg-black bg-opacity-50">
         <div class="text-center text-white">
             <h1 class="text-5xl font-bold mb-4"> {{$home_banners[0]->title}}</h1>
@@ -31,7 +16,6 @@
         </div>
     </div>
 </div>
-
 
 <div id="reservas" class="my-8"></div>
 
@@ -61,8 +45,4 @@ function scrollToSection(id) {
     </div>
 </div>
 <br><br><br><br>
-
-<x-footer />
-
-@livewireScripts
-</body>
+</x-layout>
